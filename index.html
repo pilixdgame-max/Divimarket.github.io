@@ -89,48 +89,85 @@
         .cartel-cerrado .horario span {
             color: #c084fc;
             font-weight: 600;
-        }.card {
-    background: rgba(13, 13, 13, 0.92);
-    padding: 40px;
-    border-radius: 40px;
+        }
+
+        .card {
+            background: rgba(13, 13, 13, 0.92);
+            padding: 40px;
+            border-radius: 40px;
+            text-align: center;
+            border: 2px solid #2a1a3a;
+            box-shadow: 0 0 0px rgba(155, 48, 255, 0);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(5px);
+        }
+        .card.activo {
+            border-color: #9b30ff;
+            box-shadow: 0 0 30px rgba(155, 48, 255, 0.25);
+        }
+        .card.activo:hover {
+            box-shadow: 0 0 50px rgba(155, 48, 255, 0.4);
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 50% 50%, rgba(155, 48, 255, 0.03), transparent 70%);
+            animation: rotarGlow 20s linear infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .card.activo::before {
+            opacity: 1;
+        }
+        @keyframes rotarGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .card>* {
+            position: relative;
+            z-index: 1;
+        }/* ===== CUENTA REGRESIVA ===== */
+.cuenta-regresiva {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 15px 20px;
+    border: 2px solid #ffd84a;
+    margin: 15px 0;
     text-align: center;
-    border: 2px solid #2a1a3a;
-    box-shadow: 0 0 0px rgba(155, 48, 255, 0);
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
     transition: all 0.5s ease;
-    backdrop-filter: blur(5px);
 }
-.card.activo {
-    border-color: #9b30ff;
-    box-shadow: 0 0 30px rgba(155, 48, 255, 0.25);
+.cuenta-regresiva .label {
+    color: #7a6a8a;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
-.card.activo:hover {
-    box-shadow: 0 0 50px rgba(155, 48, 255, 0.4);
+.cuenta-regresiva .tiempo {
+    color: #ffd84a;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 5px 0;
+    text-shadow: 0 0 30px rgba(255, 216, 74, 0.2);
 }
-.card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(155, 48, 255, 0.03), transparent 70%);
-    animation: rotarGlow 20s linear infinite;
-    opacity: 0;
-    transition: opacity 0.5s ease;
+.cuenta-regresiva .estado-cuenta {
+    color: #b0a0c0;
+    font-size: 14px;
 }
-.card.activo::before {
-    opacity: 1;
+.cuenta-regresiva .estado-cuenta span {
+    font-weight: 700;
 }
-@keyframes rotarGlow {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+.cuenta-regresiva.abierto {
+    border-color: #4aff8a;
 }
-.card>* {
-    position: relative;
-    z-index: 1;
+.cuenta-regresiva.cerrado {
+    border-color: #ff6a7a;
 }
 
 .horario-container {
@@ -171,7 +208,9 @@
 .horario-container .horario-texto span {
     color: #c084fc;
     font-weight: 600;
-            }h1 {
+}
+
+h1 {
     font-size: 48px;
     font-weight: 700;
     color: #c084fc;
@@ -195,9 +234,7 @@
 .subtitle span {
     color: #c084fc;
     font-weight: 500;
-}
-
-.contador-container {
+}.contador-container {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
@@ -241,7 +278,8 @@
     color: #ffd84a;
     font-size: 18px;
     margin-bottom: 10px;
-}.calculadora-container .input-group {
+}
+.calculadora-container .input-group {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,8 +316,7 @@
 .calculadora-container .input-group .btn-calc:hover {
     transform: scale(1.05);
     box-shadow: 0 0 30px rgba(255, 216, 74, 0.3);
-}
-.calculadora-container .resultado {
+}.calculadora-container .resultado {
     margin-top: 15px;
     color: #b0a0c0;
     font-size: 14px;
@@ -328,7 +365,8 @@
 .calculadora-container .resultado .mensaje-toca span {
     color: #ffd84a;
     font-weight: 600;
-}/* ===== MEJOR PRECIO ===== */
+}
+
 .mejor-precio {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
@@ -354,9 +392,7 @@
 .mejor-precio .detalle {
     color: #b0a0c0;
     font-size: 13px;
-}
-
-.productos-grid {
+}.productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 12px;
@@ -420,7 +456,9 @@
     font-weight: 700;
     min-width: 30px;
     text-align: center;
-}.proximamente-grid {
+}
+
+.proximamente-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 12px;
@@ -459,9 +497,7 @@
 .proximamente-card:hover {
     border-color: #3a2a4a;
     transform: translateY(-2px);
-}
-
-/* ===== CARRITO FLOTANTE ===== */
+}/* ===== CARRITO FLOTANTE ===== */
 .carrito-flotante {
     position: fixed;
     bottom: 20px;
@@ -496,7 +532,37 @@
 .carrito-flotante .info .items {
     color: #7a6a8a;
     font-size: 12px;
-        }/* ===== CARRITO NORMAL ===== */
+}
+
+/* ===== BOTÓN REALIZAR PAGO ===== */
+.btn-pago {
+    display: inline-block;
+    padding: 18px 48px;
+    background: linear-gradient(135deg, #ffd84a, #f5a623);
+    color: #0a0a0a;
+    font-weight: 800;
+    font-size: 20px;
+    border: none;
+    border-radius: 60px;
+    text-decoration: none;
+    letter-spacing: 2px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 30px rgba(255, 216, 74, 0.3);
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+    margin: 10px auto;
+}
+.btn-pago:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 50px rgba(255, 216, 74, 0.5);
+}
+.btn-pago .icono {
+    margin-right: 10px;
+}
+
+/* ===== CARRITO NORMAL ===== */
 .carrito {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
@@ -548,9 +614,7 @@
 .carrito .total .total-precio {
     color: #ffd84a;
     font-size: 22px;
-}
-
-.form-group {
+                          }.form-group {
     margin: 15px 0;
     display: flex;
     flex-direction: column;
@@ -579,7 +643,9 @@
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 1px;
-}/* ===== HISTORIAL ===== */
+}
+
+/* ===== HISTORIAL ===== */
 .historial-container {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
@@ -635,10 +701,14 @@
     font-size: 14px;
     transition: 0.3s ease;
     margin-top: 10px;
+    display: none;
 }
 .historial-container .btn-ver-historial:hover {
     background: #c084fc;
     color: #0a0a0a;
+}
+.historial-container .btn-ver-historial.mostrar {
+    display: inline-block;
 }
 
 .comprobante-area {
@@ -680,7 +750,7 @@
 .comprobante-preview img {
     width: 100%;
     display: block;
-        }.referencia-input {
+    }.referencia-input {
     max-width: 200px;
     margin-top: 10px;
     background: #1a1a1a;
@@ -708,6 +778,7 @@
     margin: 20px 0;
     text-align: left;
     transition: all 0.3s ease;
+    scroll-margin-top: 20px;
 }
 .pago-movil:hover {
     box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
@@ -767,44 +838,44 @@
     border-color: #4aff8a;
     color: #0a0a0a;
     box-shadow: 0 0 35px rgba(74, 255, 138, 0.4);
-    }        /* ===== TOAST ===== */
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #1a1a1a;
-            color: #e0d0f0;
-            padding: 16px 32px;
-            border-radius: 60px;
-            border: 1px solid #9b30ff;
-            box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
-            font-weight: 600;
-            opacity: 0;
-            transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: 9999;
-            pointer-events: none;
-            max-width: 90%;
-            text-align: center;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .toast.success {
-            border-color: #4aff8a;
-            box-shadow: 0 0 40px rgba(74, 255, 138, 0.2);
-        }
-        .toast.error {
-            border-color: #ff6a7a;
-            box-shadow: 0 0 40px rgba(255, 106, 122, 0.2);
-        }
-        .toast.warning {
-            border-color: #ffd84a;
-            box-shadow: 0 0 40px rgba(255, 216, 74, 0.2);
-        }
+}
 
-        .footer-phone {
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1a1a1a;
+    color: #e0d0f0;
+    padding: 16px 32px;
+    border-radius: 60px;
+    border: 1px solid #9b30ff;
+    box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 90%;
+    text-align: center;
+}
+.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.toast.success {
+    border-color: #4aff8a;
+    box-shadow: 0 0 40px rgba(74, 255, 138, 0.2);
+}
+.toast.error {
+    border-color: #ff6a7a;
+    box-shadow: 0 0 40px rgba(255, 106, 122, 0.2);
+}
+.toast.warning {
+    border-color: #ffd84a;
+    box-shadow: 0 0 40px rgba(255, 216, 74, 0.2);
+    }        .footer-phone {
             margin-top: 20px;
             padding-top: 16px;
             border-top: 1px solid #2a1a3a;
@@ -830,11 +901,14 @@
             .carrito-flotante .info .total { font-size: 15px; }
             .cartel-cerrado h1 { font-size: 32px; }
             .cartel-cerrado .cuenta { font-size: 28px; }
+            .cuenta-regresiva .tiempo { font-size: 24px; }
+            .btn-pago { font-size: 16px; padding: 14px 30px; }
         }
         @media (max-width: 400px) {
             .productos-grid { grid-template-columns: 1fr; }
             .proximamente-grid { grid-template-columns: 1fr; }
             h1 { font-size: 28px; }
+            .cuenta-regresiva .tiempo { font-size: 20px; }
         }
     </style>
 </head>
@@ -849,121 +923,130 @@
         <div class="horario">📅 Lunes a Domingo • <span>10:30 AM</span> - <span>12:00 AM</span></div>
     </div>
 
-    <div class="container" id="contenidoTienda"><div class="card" id="cardPrincipal">
-    <h1>💎 DiviMarket</h1>
-    <div class="line"></div>
-    <p class="subtitle">Recargas Free Fire • <span>Rapidez y confianza</span></p>
+    <div class="container" id="contenidoTienda">
+        <div class="card" id="cardPrincipal">
+            <h1>💎 DiviMarket</h1>
+            <div class="line"></div>
+            <p class="subtitle">Recargas Free Fire • <span>Rapidez y confianza</span></p>
 
-    <!-- HORARIO -->
-    <div class="horario-container" id="horarioContainer">
-        <span class="estado" id="estadoHorario">🟢 Abierto</span>
-        <span class="horario-texto">🕐 <span>10:30 AM</span> - <span>12:00 AM</span> (Lunes a Domingo)</span>
-    </div>
-
-    <!-- CONTADOR CLIENTES -->
-    <div class="contador-container" id="contadorContainer">
-        <div class="numero" id="contadorClientes">4,510</div>
-        <div class="texto">✨ <span>Clientes atendidos</span> ✨</div>
-    </div>
-
-    <!-- MEJOR PRECIO -->
-    <div class="mejor-precio" id="mejorPrecio">
-        <div class="label">💎 MEJOR PRECIO POR DIAMANTE</div>
-        <div class="valor" id="mejorPrecioValor">Cargando...</div>
-        <div class="detalle">Aprovecha la mejor oferta</div>
-    </div>
-
-    <!-- CALCULADORA DÓLARES -->
-    <div class="calculadora-container" id="calculadoraContainer">
-        <h3>💵 Conversor Dólar a Diamantes</h3>
-        <div class="input-group">
-            <input type="number" id="dolaresInput" placeholder="Ej: 5" step="0.01" min="0" />
-            <button class="btn-calc" onclick="calcularDolares()">Calcular</button>
-        </div>
-        <div class="resultado" id="resultadoCalculadora">
-            <div>💰 <span class="monto" id="montoBs">0</span> Bs</div>
-            <div style="color:#7a6a8a; font-size:13px; margin-top:5px;">💎 <span id="diamantesSugeridos">0</span> diamantes</div>
-            <div class="sugerencias" id="sugerenciasPaquetes"></div>
-            <div class="mensaje-toca" id="mensajeToca">👆 <span>Toca</span> los paquetes sugeridos para <span>añadirlos al carrito</span></div>
-        </div>
-    </div>
-
-    <h2 style="color:#c084fc; font-size:20px; margin:20px 0 10px;">🔥 Selecciona tus recargas</h2>
-    <div class="productos-grid" id="productosGrid"></div>
-
-    <!-- PRÓXIMAMENTE -->
-    <h2 style="color:#7a6a8a; font-size:18px; margin:30px 0 10px;">📌 Próximamente</h2>
-    <div class="proximamente-grid">
-        <div class="proximamente-card">
-            <div class="icono">🔫</div>
-            <div class="nombre">Blood Strike</div>
-            <span class="badge">Próximamente</span>
-        </div>
-        <div class="proximamente-card">
-            <div class="icono">⚔️</div>
-            <div class="nombre">Mobile Legends</div>
-            <span class="badge">Próximamente</span>
-        </div>
-        <div class="proximamente-card">
-            <div class="icono">🤖</div>
-            <div class="nombre">Roblox</div>
-            <span class="badge">Próximamente</span>
-        </div>
-        <div class="proximamente-card">
-            <div class="icono">🎬</div>
-            <div class="nombre">Netflix</div>
-            <span class="badge">Próximamente</span>
-        </div>
-    </div>        <!-- CARRITO -->
-        <div class="carrito" id="carrito">
-            <h3>🛒 Tu carrito</h3>
-            <div id="carritoItems"></div>
-            <div class="total">
-                <span>Total:</span>
-                <span class="total-precio" id="totalCarrito">Bs 0</span>
+            <!-- ===== CUENTA REGRESIVA (SIEMPRE VISIBLE) ===== -->
+            <div class="cuenta-regresiva" id="cuentaRegresiva">
+                <div class="label" id="cuentaLabel">⏳ La tienda cierra en:</div>
+                <div class="tiempo" id="cuentaTiempo">--:--:--</div>
+                <div class="estado-cuenta" id="cuentaEstado">🟢 <span>Abierto</span> • Atendiendo pedidos</div>
             </div>
-            <div style="color:#7a6a8a; font-size:13px; margin-top:5px;" id="totalDiamantes">💎 0 diamantes</div>
-        </div>
 
-        <!-- HISTORIAL -->
-        <div class="historial-container" id="historialContainer">
-            <h4>📜 Historial de pedidos</h4>
-            <div id="historialLista">
-                <div class="vacio">No hay pedidos registrados para este ID</div>
-            </div>
-            <button class="btn-ver-historial" onclick="verHistorial()">🔄 Ver mi historial</button>
-        </div>
+            <!-- ===== HORARIO ===== -->
+            <div class="horario-container" id="horarioContainer">
+                <span class="estado" id="estadoHorario">🟢 Abierto</span>
+                <span class="horario-texto">🕐 <span>10:30 AM</span> - <span>12:00 AM</span> (Lunes a Domingo)</span>
+            </div><!-- ===== CONTADOR CLIENTES ===== -->
+<div class="contador-container" id="contadorContainer">
+    <div class="numero" id="contadorClientes">4,510</div>
+    <div class="texto">✨ <span>Clientes atendidos</span> ✨</div>
+</div>
 
-        <!-- ID DE FREE FIRE -->
-        <div class="form-group">
-            <label>🎮 ID de Free Fire</label>
-            <input type="text" id="playerId" placeholder="Ej: 1234567890" maxlength="15" oninput="verificarCampos()" />
-            <button class="btn btn-small" style="max-width:200px; padding:8px 20px; font-size:13px; margin-top:5px;" onclick="verificarID()">🔍 Verificar ID</button>
-            <div id="nombreJugador" style="color:#b0a0c0; font-size:14px; min-height:24px; margin-top:5px;"></div>
-        </div>
+<!-- ===== MEJOR PRECIO ===== -->
+<div class="mejor-precio" id="mejorPrecio">
+    <div class="label">💎 MEJOR PRECIO POR DIAMANTE</div>
+    <div class="valor" id="mejorPrecioValor">Cargando...</div>
+    <div class="detalle">Aprovecha la mejor oferta</div>
+</div>
 
-        <!-- TELÉFONO -->
-        <div class="form-group">
-            <label>📱 Teléfono de contacto</label>
-            <input type="text" id="telefono" placeholder="0424-123-4567" oninput="verificarCampos()" />
-        </div>
+<!-- ===== CALCULADORA DÓLARES ===== -->
+<div class="calculadora-container" id="calculadoraContainer">
+    <h3>💵 Conversor Dólar a Diamantes</h3>
+    <div class="input-group">
+        <input type="number" id="dolaresInput" placeholder="Ej: 5" step="0.01" min="0" />
+        <button class="btn-calc" onclick="calcularDolares()">Calcular</button>
+    </div>
+    <div class="resultado" id="resultadoCalculadora">
+        <div>💰 <span class="monto" id="montoBs">0</span> Bs</div>
+        <div style="color:#7a6a8a; font-size:13px; margin-top:5px;">💎 <span id="diamantesSugeridos">0</span> diamantes</div>
+        <div class="sugerencias" id="sugerenciasPaquetes"></div>
+        <div class="mensaje-toca" id="mensajeToca">👆 <span>Toca</span> los paquetes sugeridos para <span>añadirlos al carrito</span></div>
+    </div>
+</div>
 
-        <!-- COMPROBANTE -->
-        <div class="form-group">
-            <label>📸 Comprobante de pago</label>
-            <div class="comprobante-area" id="comprobanteArea" onclick="document.getElementById('comprobanteInput').click()">
-                <div class="icono">📤</div>
-                <div class="texto">Toca para <span>adjuntar</span> tu comprobante</div>
-            </div>
-            <input type="file" id="comprobanteInput" accept="image/*" style="display:none;" />
-            <div class="comprobante-preview" id="comprobantePreview">
-                <img id="comprobanteImg" src="" alt="Comprobante" />
-            </div>
-            <input type="text" id="referenciaInput" placeholder="🔢 Últimos 4 dígitos de la referencia" maxlength="4" class="referencia-input" oninput="verificarCampos()" />
-        </div>
+<h2 style="color:#c084fc; font-size:20px; margin:20px 0 10px;">🔥 Selecciona tus recargas</h2>
+<div class="productos-grid" id="productosGrid"></div>
 
-        <!-- PAGO MÓVIL -->
-        <div class="pago-movil">
+<!-- ===== PRÓXIMAMENTE ===== -->
+<h2 style="color:#7a6a8a; font-size:18px; margin:30px 0 10px;">📌 Próximamente</h2>
+<div class="proximamente-grid">
+    <div class="proximamente-card">
+        <div class="icono">🔫</div>
+        <div class="nombre">Blood Strike</div>
+        <span class="badge">Próximamente</span>
+    </div>
+    <div class="proximamente-card">
+        <div class="icono">⚔️</div>
+        <div class="nombre">Mobile Legends</div>
+        <span class="badge">Próximamente</span>
+    </div>
+    <div class="proximamente-card">
+        <div class="icono">🤖</div>
+        <div class="nombre">Roblox</div>
+        <span class="badge">Próximamente</span>
+    </div>
+    <div class="proximamente-card">
+        <div class="icono">🎬</div>
+        <div class="nombre">Netflix</div>
+        <span class="badge">Próximamente</span>
+    </div>
+</div><!-- ===== CARRITO ===== -->
+<div class="carrito" id="carrito">
+    <h3>🛒 Tu carrito</h3>
+    <div id="carritoItems"></div>
+    <div class="total">
+        <span>Total:</span>
+        <span class="total-precio" id="totalCarrito">Bs 0</span>
+    </div>
+    <div style="color:#7a6a8a; font-size:13px; margin-top:5px;" id="totalDiamantes">💎 0 diamantes</div>
+</div>
+
+<!-- ===== BOTÓN REALIZAR PAGO (DESLIZA HACIA EL PAGO MÓVIL) ===== -->
+<button class="btn-pago" onclick="irAlPago()">
+    <span class="icono">💳</span> Realizar Pago
+</button>
+
+<!-- ===== HISTORIAL ===== -->
+<div class="historial-container" id="historialContainer">
+    <h4>📜 Historial de pedidos</h4>
+    <div id="historialLista">
+        <div class="vacio">No hay pedidos registrados para este ID</div>
+    </div>
+    <button class="btn-ver-historial" id="btnVerHistorial" onclick="verHistorial()">🔄 Ver mi historial</button>
+</div>
+
+<!-- ===== ID DE FREE FIRE ===== -->
+<div class="form-group">
+    <label>🎮 ID de Free Fire</label>
+    <input type="text" id="playerId" placeholder="Ej: 1234567890" maxlength="15" oninput="verificarCampos(); cargarHistorial(this.value)" />
+    <button class="btn btn-small" style="max-width:200px; padding:8px 20px; font-size:13px; margin-top:5px;" onclick="verificarID()">🔍 Verificar ID</button>
+    <div id="nombreJugador" style="color:#b0a0c0; font-size:14px; min-height:24px; margin-top:5px;"></div>
+</div>
+
+<!-- ===== TELÉFONO ===== -->
+<div class="form-group">
+    <label>📱 Teléfono de contacto</label>
+    <input type="text" id="telefono" placeholder="0424-123-4567" oninput="verificarCampos()" />
+</div>
+
+<!-- ===== COMPROBANTE ===== -->
+<div class="form-group">
+    <label>📸 Comprobante de pago</label>
+    <div class="comprobante-area" id="comprobanteArea" onclick="document.getElementById('comprobanteInput').click()">
+        <div class="icono">📤</div>
+        <div class="texto">Toca para <span>adjuntar</span> tu comprobante</div>
+    </div>
+    <input type="file" id="comprobanteInput" accept="image/*" style="display:none;" />
+    <div class="comprobante-preview" id="comprobantePreview">
+        <img id="comprobanteImg" src="" alt="Comprobante" />
+    </div>
+    <input type="text" id="referenciaInput" placeholder="🔢 Últimos 4 dígitos de la referencia" maxlength="4" class="referencia-input" oninput="verificarCampos()" />
+</div>        <!-- ===== PAGO MÓVIL ===== -->
+        <div class="pago-movil" id="pagoMovilSection">
             <h3>💳 PAGO MÓVIL</h3>
             <div class="info">
                 <strong>🏦 Banco:</strong> Venezuela<br />
@@ -972,6 +1055,7 @@
             </div>
         </div>
 
+        <!-- ===== BOTÓN SOLICITAR RECARGA ===== -->
         <button class="btn btn-success" id="btnSolicitar" disabled onclick="solicitarPedido()">
             ✅ Solicitar Recarga
         </button>
@@ -1012,10 +1096,28 @@
 
     let carrito = [];
     let contador = parseInt(localStorage.getItem('contadorClientes')) || 4510;
-    let historial = JSON.parse(localStorage.getItem('historial_' + 'default')) || [];
+    let historial = [];
 
     // ================================================================
-    // HORARIO Y CARTEL DE CIERRE
+    // FUNCIÓN PARA IR AL PAGO (DESLIZAMIENTO SUAVE)
+    // ================================================================
+    function irAlPago() {
+        const section = document.getElementById('pagoMovilSection');
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            // Resaltar la sección con un efecto
+            section.style.transition = 'all 0.3s ease';
+            section.style.borderColor = '#ffd84a';
+            section.style.boxShadow = '0 0 40px rgba(255, 216, 74, 0.3)';
+            setTimeout(() => {
+                section.style.borderColor = '#4aff8a';
+                section.style.boxShadow = 'none';
+            }, 2000);
+        }
+    }
+
+    // ================================================================
+    // HORARIO Y CUENTA REGRESIVA
     // ================================================================
     function verificarHorario() {
         const ahora = new Date();
@@ -1025,48 +1127,89 @@
         const estado = document.getElementById('estadoHorario');
         const cartel = document.getElementById('cartelCerrado');
         const contenido = document.getElementById('contenidoTienda');
+        const cuentaRegresiva = document.getElementById('cuentaRegresiva');
+        const cuentaTiempo = document.getElementById('cuentaTiempo');
+        const cuentaLabel = document.getElementById('cuentaLabel');
+        const cuentaEstado = document.getElementById('cuentaEstado');
+
+        let horasRestantes, minutosRestantes, segundosRestantes;
+        let targetTime;
 
         if (abierto) {
+            // Calcular tiempo hasta el cierre (HORA_CIERRE)
+            targetTime = new Date(ahora);
+            targetTime.setHours(Math.floor(HORA_CIERRE), (HORA_CIERRE % 1) * 60, 0, 0);
+            if (targetTime <= ahora) {
+                targetTime.setDate(targetTime.getDate() + 1);
+            }
             container.className = 'horario-container abierto';
             estado.className = 'estado abierto';
             estado.textContent = '🟢 Abierto';
             cartel.classList.remove('mostrar');
             contenido.style.display = 'block';
             document.getElementById('cardPrincipal').classList.add('activo');
+            cuentaRegresiva.className = 'cuenta-regresiva abierto';
+            cuentaLabel.textContent = '⏳ La tienda cierra en:';
+            cuentaEstado.innerHTML = '🟢 <span>Abierto</span> • Atendiendo pedidos';
         } else {
+            // Calcular tiempo hasta la apertura (HORA_APERTURA)
+            targetTime = new Date(ahora);
+            targetTime.setHours(Math.floor(HORA_APERTURA), (HORA_APERTURA % 1) * 60, 0, 0);
+            if (targetTime <= ahora) {
+                targetTime.setDate(targetTime.getDate() + 1);
+            }
             container.className = 'horario-container cerrado';
             estado.className = 'estado cerrado';
             estado.textContent = '🔴 Cerrado';
             cartel.classList.add('mostrar');
             contenido.style.display = 'none';
             document.getElementById('cardPrincipal').classList.remove('activo');
-            
-            // Calcular tiempo restante para apertura
-            let minutosRestantes = (HORA_APERTURA - hora) * 60;
-            if (minutosRestantes < 0) minutosRestantes += 24 * 60;
-            const horas = Math.floor(minutosRestantes / 60);
-            const minutos = Math.floor(minutosRestantes % 60);
-            const segundos = Math.floor((minutosRestantes % 1) * 60);
-            document.getElementById('cuentaApertura').textContent = 
-                `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            cuentaRegresiva.className = 'cuenta-regresiva cerrado';
+            cuentaLabel.textContent = '⏳ La tienda abre en:';
+            cuentaEstado.innerHTML = '🔴 <span>Cerrado</span> • Vuelve a las 10:30 AM';
         }
-        return abierto;
-    }
 
-    // ================================================================
-    // TOAST
-    // ================================================================
-    function showToast(msg, type = 'info', duration = 3000) {
-        const t = document.getElementById('toast');
-        t.textContent = msg;
-        t.className = 'toast';
-        if (type === 'success') t.classList.add('success');
-        if (type === 'error') t.classList.add('error');
-        if (type === 'warning') t.classList.add('warning');
-        t.classList.add('show');
-        clearTimeout(t._timeout);
-        t._timeout = setTimeout(() => t.classList.remove('show'), duration);
+        // Actualizar cuenta regresiva
+        const diff = targetTime - ahora;
+        if (diff > 0) {
+            const horas = Math.floor(diff / (1000 * 60 * 60));
+            const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+            cuentaTiempo.textContent = 
+                `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+        } else {
+            cuentaTiempo.textContent = '00:00:00';
+        }
+
+        // Actualizar cartel de cierre
+        if (!abierto) {
+            const diffApertura = targetTime - ahora;
+            if (diffApertura > 0) {
+                const horas = Math.floor(diffApertura / (1000 * 60 * 60));
+                const minutos = Math.floor((diffApertura % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((diffApertura % (1000 * 60)) / 1000);
+                document.getElementById('cuentaApertura').textContent = 
+                    `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+            }
+        }
+
+        return abierto;
     }// ================================================================
+// TOAST
+// ================================================================
+function showToast(msg, type = 'info', duration = 3000) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.className = 'toast';
+    if (type === 'success') t.classList.add('success');
+    if (type === 'error') t.classList.add('error');
+    if (type === 'warning') t.classList.add('warning');
+    t.classList.add('show');
+    clearTimeout(t._timeout);
+    t._timeout = setTimeout(() => t.classList.remove('show'), duration);
+}
+
+// ================================================================
 // CONTADOR DE CLIENTES
 // ================================================================
 function actualizarContador() {
@@ -1079,7 +1222,7 @@ function actualizarContador() {
 }
 
 // ================================================================
-// MEJOR PRECIO POR DIAMANTE
+// MEJOR PRECIO
 // ================================================================
 function calcularMejorPrecio() {
     let mejor = null;
@@ -1120,9 +1263,7 @@ function cargarProductos() {
         grid.appendChild(div);
     });
     calcularMejorPrecio();
-}
-
-// ================================================================
+}// ================================================================
 // CARRITO
 // ================================================================
 function cambiarCantidad(id, delta) {
@@ -1148,7 +1289,9 @@ function cambiarCantidad(id, delta) {
     renderCarrito();
     verificarCampos();
     activarNeones();
-}function renderCarrito() {
+}
+
+function renderCarrito() {
     const carritoDiv = document.getElementById('carrito');
     const itemsDiv = document.getElementById('carritoItems');
     const totalDiv = document.getElementById('totalCarrito');
@@ -1188,9 +1331,7 @@ function cambiarCantidad(id, delta) {
     diamantesDiv.textContent = `💎 ${totalDiamantes.toLocaleString()} diamantes`;
     flotanteTotal.textContent = `Bs ${total.toLocaleString()}`;
     flotanteItems.textContent = `${totalItems} producto${totalItems > 1 ? 's' : ''}`;
-}
-
-function verificarCampos() {
+    }function verificarCampos() {
     const btn = document.getElementById('btnSolicitar');
     const playerId = document.getElementById('playerId').value.trim();
     const telefono = document.getElementById('telefono').value.trim();
@@ -1215,261 +1356,264 @@ function verificarCampos() {
 function activarNeones() {
     document.getElementById('cardPrincipal').classList.add('activo');
     document.getElementById('calculadoraContainer').classList.add('activo');
+}
+
+// ================================================================
+// VERIFICAR ID
+// ================================================================
+function verificarID() {
+    const id = document.getElementById('playerId').value.trim();
+    const display = document.getElementById('nombreJugador');
+    if (!id) {
+        display.textContent = '⚠️ Ingresa un ID válido';
+        display.style.color = '#ff6a7a';
+        return;
+    }
+    display.textContent = `🎮 ID: ${id}`;
+    display.style.color = '#4aff8a';
+    cargarHistorial(id);
+}
+
+// ================================================================
+// HISTORIAL
+// ================================================================
+function cargarHistorial(id) {
+    const key = 'historial_' + id;
+    historial = JSON.parse(localStorage.getItem(key)) || [];
+    const container = document.getElementById('historialContainer');
+    const lista = document.getElementById('historialLista');
+    const btnVer = document.getElementById('btnVerHistorial');
+
+    // Mostrar el botón SOLO si hay más de 1 recarga
+    if (historial.length > 0) {
+        btnVer.classList.add('mostrar');
+    } else {
+        btnVer.classList.remove('mostrar');
+    }
+
+    if (historial.length === 0) {
+        lista.innerHTML = `<div class="vacio">No hay pedidos registrados para este ID</div>`;
+        container.classList.remove('mostrar');
+        return;
+    }
+
+    container.classList.add('mostrar');
+    let html = '';
+    historial.slice().reverse().forEach(item => {
+        html += `
+            <div class="item-historial">
+                <span class="fecha">${item.fecha}</span>
+                <span class="producto">${item.producto}</span>
+                <span class="monto">Bs ${item.monto.toLocaleString()}</span>
+            </div>
+        `;
+    });
+    lista.innerHTML = html;
+}
+
+function verHistorial() {
+    const id = document.getElementById('playerId').value.trim();
+    if (!id) {
+        showToast('⚠️ Ingresa un ID primero', 'error');
+        return;
+    }
+    cargarHistorial(id);
+    // Desplazar suavemente hacia el historial
+    document.getElementById('historialContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}// ================================================================
+// CALCULADORA DE DÓLARES
+// ================================================================
+function calcularDolares() {
+    const input = document.getElementById('dolaresInput');
+    const dolares = parseFloat(input.value);
+    const resultadoDiv = document.getElementById('resultadoCalculadora');
+    const montoBs = document.getElementById('montoBs');
+    const diamantesSugeridos = document.getElementById('diamantesSugeridos');
+    const sugerenciasDiv = document.getElementById('sugerenciasPaquetes');
+    const mensajeToca = document.getElementById('mensajeToca');
+
+    if (!dolares || dolares <= 0) {
+        showToast('⚠️ Ingresa un monto válido', 'error');
+        return;
+    }
+
+    const bs = dolares * TASA_DOLAR;
+    montoBs.textContent = bs.toLocaleString();
+    resultadoDiv.classList.add('mostrar');
+    mensajeToca.style.display = 'block';
+
+    const diamantesAprox = Math.floor(bs / 6.5);
+    diamantesSugeridos.textContent = diamantesAprox.toLocaleString();
+
+    let sugerencias = [];
+    let restante = bs;
+    const ordenados = [...PRODUCTOS].sort((a, b) => b.precio - a.precio);
+
+    for (const p of ordenados) {
+        if (restante >= p.precio) {
+            const cantidad = Math.floor(restante / p.precio);
+            if (cantidad > 0) {
+                sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
+                restante = restante - (p.precio * cantidad);
+            }
+        }
+    }
+
+    if (sugerencias.length === 0) {
+        sugerenciasDiv.innerHTML = `
+            <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
+                💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
+            </div>
+        `;
+        return;
+    }
+
+    let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
+    sugerencias.forEach(s => {
+        html += `
+            <div class="tag" onclick="agregarSugerencia(${s.id}, ${s.cantidad})">
+                <span class="check">➕</span> ${s.cantidad}x 💎 ${s.diamantes} (Bs ${s.total.toLocaleString()})
+            </div>
+        `;
+    });
+
+    if (restante > 0) {
+        html += `
+            <div style="color:#7a6a8a; font-size:12px; margin-top:8px;">
+                💰 Sobrante: Bs ${restante.toLocaleString()}
+            </div>
+        `;
+    }
+    sugerenciasDiv.innerHTML = html;
+}
+
+function agregarSugerencia(id, cantidad) {
+    if (!verificarHorario()) {
+        showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
+        return;
+    }
+    const producto = PRODUCTOS.find(p => p.id === id);
+    if (!producto) return;
+    const existente = carrito.find(c => c.id === id);
+    if (existente) {
+        existente.cantidad += cantidad;
+    } else {
+        carrito.push({ ...producto, cantidad: cantidad });
+    }
+    document.getElementById(`cantidad-${id}`).textContent =
+        carrito.find(c => c.id === id)?.cantidad || 0;
+    renderCarrito();
+    verificarCampos();
+    activarNeones();
+    showToast(`✅ Agregado ${cantidad}x ${producto.diamantes} diamantes`, 'success');
+}// ================================================================
+// COMPROBANTE
+// ================================================================
+document.addEventListener('DOMContentLoaded', function() {
+    const input = document.getElementById('comprobanteInput');
+    const preview = document.getElementById('comprobantePreview');
+    const img = document.getElementById('comprobanteImg');
+    const area = document.getElementById('comprobanteArea');
+
+    input.addEventListener('change', function(e) {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(ev) {
+                img.src = ev.target.result;
+                preview.style.display = 'block';
+                area.style.display = 'none';
+                showToast('✅ Comprobante cargado', 'success', 1500);
+                verificarCampos();
+                activarNeones();
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    document.getElementById('referenciaInput').addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '').slice(0, 4);
+        verificarCampos();
+    });
+
+    document.getElementById('playerId').addEventListener('input', verificarCampos);
+    document.getElementById('telefono').addEventListener('input', verificarCampos);
+
+    document.getElementById('dolaresInput').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') calcularDolares();
+    });
+
+    // Verificar horario cada 5 segundos
+    setInterval(() => {
+        verificarHorario();
+        verificarCampos();
+    }, 5000);
+
+    // Ocultar mensaje de "toca" hasta que se calcule
+    document.getElementById('mensajeToca').style.display = 'none';
+});// ================================================================
+// SOLICITAR PEDIDO
+// ================================================================
+function solicitarPedido() {
+    if (!verificarHorario()) {
+        showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
+        return;
+    }
+
+    const playerId = document.getElementById('playerId').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const referencia = document.getElementById('referenciaInput').value.trim();
+    const comprobanteInput = document.getElementById('comprobanteInput');
+    const comprobanteFile = comprobanteInput.files[0];
+
+    if (!playerId || !telefono || !referencia || !comprobanteFile || carrito.length === 0) {
+        showToast('⚠️ Completa todos los campos', 'error');
+        return;
+    }
+
+    let total = 0;
+    let totalDiamantes = 0;
+    let detalleProductos = '';
+
+    carrito.forEach(item => {
+        const subtotal = item.precio * item.cantidad;
+        total += subtotal;
+        totalDiamantes += item.diamantes * item.cantidad;
+        detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
+    });
+
+    const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
+        `🎮 *ID de Free Fire:* ${playerId}%0A` +
+        `📱 *Teléfono:* ${telefono}%0A` +
+        `📦 *Productos:*%0A${detalleProductos}%0A` +
+        `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
+        `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
+        `🔢 *Referencia:* ${referencia}%0A%0A` +
+        `✅ *Realiza la recarga y confirma al cliente*`;
+
+    const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
+    window.open(url, '_blank');
+
+    // Guardar en historial
+    const key = 'historial_' + playerId;
+    const historialActual = JSON.parse(localStorage.getItem(key)) || [];
+    historialActual.push({
+        fecha: new Date().toLocaleDateString(),
+        producto: `${totalDiamantes} diamantes`,
+        monto: total
+    });
+    localStorage.setItem(key, JSON.stringify(historialActual));
+
+    // Subir contador
+    contador++;
+    actualizarContador();
+
+    showToast('✅ ¡Pedido enviado! Espera confirmación por WhatsApp', 'success', 4000);
+
+    setTimeout(() => {
+        location.reload();
+    }, 3000);
 }        // ================================================================
-        // VERIFICAR ID
-        // ================================================================
-        function verificarID() {
-            const id = document.getElementById('playerId').value.trim();
-            const display = document.getElementById('nombreJugador');
-            if (!id) {
-                display.textContent = '⚠️ Ingresa un ID válido';
-                display.style.color = '#ff6a7a';
-                return;
-            }
-            display.textContent = `🎮 ID: ${id}`;
-            display.style.color = '#4aff8a';
-            // Cargar historial para este ID
-            cargarHistorial(id);
-        }
-
-        // ================================================================
-        // HISTORIAL
-        // ================================================================
-        function cargarHistorial(id) {
-            const key = 'historial_' + id;
-            historial = JSON.parse(localStorage.getItem(key)) || [];
-            const container = document.getElementById('historialContainer');
-            const lista = document.getElementById('historialLista');
-
-            if (historial.length === 0) {
-                lista.innerHTML = `<div class="vacio">No hay pedidos registrados para este ID</div>`;
-                container.classList.remove('mostrar');
-                return;
-            }
-
-            container.classList.add('mostrar');
-            let html = '';
-            historial.slice().reverse().forEach(item => {
-                html += `
-                    <div class="item-historial">
-                        <span class="fecha">${item.fecha}</span>
-                        <span class="producto">${item.producto}</span>
-                        <span class="monto">Bs ${item.monto.toLocaleString()}</span>
-                    </div>
-                `;
-            });
-            lista.innerHTML = html;
-        }
-
-        function verHistorial() {
-            const id = document.getElementById('playerId').value.trim();
-            if (!id) {
-                showToast('⚠️ Ingresa un ID primero', 'error');
-                return;
-            }
-            cargarHistorial(id);
-        }
-
-        // ================================================================
-        // CALCULADORA DE DÓLARES
-        // ================================================================
-        function calcularDolares() {
-            const input = document.getElementById('dolaresInput');
-            const dolares = parseFloat(input.value);
-            const resultadoDiv = document.getElementById('resultadoCalculadora');
-            const montoBs = document.getElementById('montoBs');
-            const diamantesSugeridos = document.getElementById('diamantesSugeridos');
-            const sugerenciasDiv = document.getElementById('sugerenciasPaquetes');
-            const mensajeToca = document.getElementById('mensajeToca');
-
-            if (!dolares || dolares <= 0) {
-                showToast('⚠️ Ingresa un monto válido', 'error');
-                return;
-            }
-
-            const bs = dolares * TASA_DOLAR;
-            montoBs.textContent = bs.toLocaleString();
-            resultadoDiv.classList.add('mostrar');
-            mensajeToca.style.display = 'block';
-
-            const diamantesAprox = Math.floor(bs / 6.5);
-            diamantesSugeridos.textContent = diamantesAprox.toLocaleString();
-
-            let sugerencias = [];
-            let restante = bs;
-            const ordenados = [...PRODUCTOS].sort((a, b) => b.precio - a.precio);
-
-            for (const p of ordenados) {
-                if (restante >= p.precio) {
-                    const cantidad = Math.floor(restante / p.precio);
-                    if (cantidad > 0) {
-                        sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
-                        restante = restante - (p.precio * cantidad);
-                    }
-                }
-            }
-
-            if (sugerencias.length === 0) {
-                sugerenciasDiv.innerHTML = `
-                    <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
-                        💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
-                    </div>
-                `;
-                return;
-            }
-
-            let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
-            sugerencias.forEach(s => {
-                html += `
-                    <div class="tag" onclick="agregarSugerencia(${s.id}, ${s.cantidad})">
-                        <span class="check">➕</span> ${s.cantidad}x 💎 ${s.diamantes} (Bs ${s.total.toLocaleString()})
-                    </div>
-                `;
-            });
-
-            if (restante > 0) {
-                html += `
-                    <div style="color:#7a6a8a; font-size:12px; margin-top:8px;">
-                        💰 Sobrante: Bs ${restante.toLocaleString()}
-                    </div>
-                `;
-            }
-            sugerenciasDiv.innerHTML = html;
-        }
-
-        function agregarSugerencia(id, cantidad) {
-            if (!verificarHorario()) {
-                showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
-                return;
-            }
-            const producto = PRODUCTOS.find(p => p.id === id);
-            if (!producto) return;
-            const existente = carrito.find(c => c.id === id);
-            if (existente) {
-                existente.cantidad += cantidad;
-            } else {
-                carrito.push({ ...producto, cantidad: cantidad });
-            }
-            document.getElementById(`cantidad-${id}`).textContent =
-                carrito.find(c => c.id === id)?.cantidad || 0;
-            renderCarrito();
-            verificarCampos();
-            activarNeones();
-            showToast(`✅ Agregado ${cantidad}x ${producto.diamantes} diamantes`, 'success');
-        }
-
-        // ================================================================
-        // COMPROBANTE
-        // ================================================================
-        document.addEventListener('DOMContentLoaded', function() {
-            const input = document.getElementById('comprobanteInput');
-            const preview = document.getElementById('comprobantePreview');
-            const img = document.getElementById('comprobanteImg');
-            const area = document.getElementById('comprobanteArea');
-
-            input.addEventListener('change', function(e) {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(ev) {
-                        img.src = ev.target.result;
-                        preview.style.display = 'block';
-                        area.style.display = 'none';
-                        showToast('✅ Comprobante cargado', 'success', 1500);
-                        verificarCampos();
-                        activarNeones();
-                    };
-                    reader.readAsDataURL(file);
-                }
-            });
-
-            document.getElementById('referenciaInput').addEventListener('input', function() {
-                this.value = this.value.replace(/\D/g, '').slice(0, 4);
-                verificarCampos();
-            });
-
-            document.getElementById('playerId').addEventListener('input', verificarCampos);
-            document.getElementById('telefono').addEventListener('input', verificarCampos);
-
-            document.getElementById('dolaresInput').addEventListener('keydown', function(e) {
-                if (e.key === 'Enter') calcularDolares();
-            });
-
-            // Verificar horario cada 10 segundos
-            setInterval(() => {
-                verificarHorario();
-                verificarCampos();
-            }, 10000);
-
-            // Ocultar mensaje de "toca" hasta que se calcule
-            document.getElementById('mensajeToca').style.display = 'none';
-        });
-
-        // ================================================================
-        // SOLICITAR PEDIDO
-        // ================================================================
-        function solicitarPedido() {
-            if (!verificarHorario()) {
-                showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
-                return;
-            }
-
-            const playerId = document.getElementById('playerId').value.trim();
-            const telefono = document.getElementById('telefono').value.trim();
-            const referencia = document.getElementById('referenciaInput').value.trim();
-            const comprobanteInput = document.getElementById('comprobanteInput');
-            const comprobanteFile = comprobanteInput.files[0];
-
-            if (!playerId || !telefono || !referencia || !comprobanteFile || carrito.length === 0) {
-                showToast('⚠️ Completa todos los campos', 'error');
-                return;
-            }
-
-            let total = 0;
-            let totalDiamantes = 0;
-            let detalleProductos = '';
-
-            carrito.forEach(item => {
-                const subtotal = item.precio * item.cantidad;
-                total += subtotal;
-                totalDiamantes += item.diamantes * item.cantidad;
-                detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
-            });
-
-            const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
-                `🎮 *ID de Free Fire:* ${playerId}%0A` +
-                `📱 *Teléfono:* ${telefono}%0A` +
-                `📦 *Productos:*%0A${detalleProductos}%0A` +
-                `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
-                `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
-                `🔢 *Referencia:* ${referencia}%0A%0A` +
-                `✅ *Realiza la recarga y confirma al cliente*`;
-
-            const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
-            window.open(url, '_blank');
-
-            // Guardar en historial
-            const key = 'historial_' + playerId;
-            const historialActual = JSON.parse(localStorage.getItem(key)) || [];
-            historialActual.push({
-                fecha: new Date().toLocaleDateString(),
-                producto: `${totalDiamantes} diamantes`,
-                monto: total
-            });
-            localStorage.setItem(key, JSON.stringify(historialActual));
-
-            // Subir contador
-            contador++;
-            actualizarContador();
-
-            showToast('✅ ¡Pedido enviado! Espera confirmación por WhatsApp', 'success', 4000);
-
-            setTimeout(() => {
-                location.reload();
-            }, 3000);
-        }
-
-        // ================================================================
         // INICIAR
         // ================================================================
         document.addEventListener('DOMContentLoaded', () => {
@@ -1488,6 +1632,12 @@ function activarNeones() {
                     solicitarPedido();
                 }
             });
+
+            // Cargar historial si ya hay un ID escrito
+            const idInicial = document.getElementById('playerId').value.trim();
+            if (idInicial) {
+                cargarHistorial(idInicial);
+            }
 
             console.log('💡 DiviMarket cargado');
             console.log('📱 WhatsApp:', WHATSAPP_VENDEDOR);
