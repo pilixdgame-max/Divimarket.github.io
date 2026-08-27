@@ -10,6 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             min-height: 100vh;
             background: #0a0a0a;
@@ -18,149 +19,214 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                url('https://www.mordeo.org/files/uploads/2020/09/Shinobi-Garena-Free-Fire-4K-Ultra-HD-Mobile-Wallpaper-768x1365.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
+
         .container {
             max-width: 950px;
             width: 100%;
-        }
-        .card {
-            background: #0d0d0d;
-            padding: 40px;
-            border-radius: 40px;
-            text-align: center;
-            border: 2px solid #2a1a3a;
-            box-shadow: 0 0 0px rgba(155, 48, 255, 0);
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.5s ease;
-        }
-        .card.activo {
-            border-color: #9b30ff;
-            box-shadow: 0 0 30px rgba(155, 48, 255, 0.25);
-        }
-        .card.activo:hover {
-            box-shadow: 0 0 50px rgba(155, 48, 255, 0.4);
-        }
-        .card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(155, 48, 255, 0.03), transparent 70%);
-            animation: rotarGlow 20s linear infinite;
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-        .card.activo::before {
-            opacity: 1;
-        }
-        @keyframes rotarGlow {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        .card>* {
             position: relative;
             z-index: 1;
         }
-        .horario-container {
-            background: #141414;
-            border-radius: 20px;
-            padding: 15px 20px;
-            border: 2px solid #3a2a4a;
-            margin: 15px 0;
-            display: flex;
+
+        /* ===== CARTEL DE TIENDA CERRADA ===== */
+        .cartel-cerrado {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            display: none;
             justify-content: center;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
-            transition: all 0.5s ease;
+            z-index: 9999;
+            flex-direction: column;
+            text-align: center;
+            padding: 30px;
+            backdrop-filter: blur(10px);
         }
-        .horario-container.abierto {
-            border-color: #4aff8a;
-            box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
+        .cartel-cerrado.mostrar {
+            display: flex;
         }
-        .horario-container.cerrado {
-            border-color: #ff6a7a;
-            box-shadow: 0 0 30px rgba(255, 106, 122, 0.1);
+        .cartel-cerrado .icono {
+            font-size: 80px;
+            margin-bottom: 20px;
+            animation: pulso 2s infinite;
         }
-        .horario-container .estado {
-            font-weight: 700;
-            font-size: 18px;
+        @keyframes pulso {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
-        .horario-container .estado.abierto {
-            color: #4aff8a;
-        }
-        .horario-container .estado.cerrado {
+        .cartel-cerrado h1 {
             color: #ff6a7a;
-        }
-        .horario-container .horario-texto {
-            color: #7a6a8a;
-            font-size: 14px;
-        }
-        .horario-container .horario-texto span {
-            color: #c084fc;
-            font-weight: 600;
-        }
-        h1 {
             font-size: 48px;
-            font-weight: 700;
-            color: #c084fc;
-            text-shadow: 0 0 15px #9b30ff, 0 0 30px #7a1fcc;
-            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(255, 106, 122, 0.3);
+            margin-bottom: 15px;
         }
-        .line {
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, transparent, #9b30ff, transparent);
-            margin: 10px auto 16px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px #9b30ff;
-        }
-        .subtitle {
-            font-size: 17px;
+        .cartel-cerrado .sub {
             color: #b0a0c0;
-            letter-spacing: 1px;
-            margin-bottom: 18px;
+            font-size: 20px;
+            margin-bottom: 10px;
         }
-        .subtitle span {
-            color: #c084fc;
-            font-weight: 500;
-        }
-        .contador-container {
-            background: #141414;
-            border-radius: 20px;
-            padding: 20px;
-            border: 2px solid #ffd84a;
-            margin: 20px 0;
-            box-shadow: 0 0 30px rgba(255, 216, 74, 0.05);
-            transition: all 0.5s ease;
-        }
-        .contador-container.activo {
-            box-shadow: 0 0 50px rgba(255, 216, 74, 0.15);
-        }
-        .contador-container .numero {
-            font-size: 48px;
-            font-weight: 700;
+        .cartel-cerrado .cuenta {
             color: #ffd84a;
-            text-shadow: 0 0 30px rgba(255, 216, 74, 0.3);
+            font-size: 36px;
+            font-weight: 700;
+            margin: 15px 0;
+            text-shadow: 0 0 30px rgba(255, 216, 74, 0.2);
         }
-        .contador-container .texto {
-            color: #b0a0c0;
+        .cartel-cerrado .horario {
+            color: #7a6a8a;
             font-size: 16px;
-            margin-top: 5px;
+            margin-top: 10px;
         }
-        .contador-container .texto span {
+        .cartel-cerrado .horario span {
             color: #c084fc;
             font-weight: 600;
-        }.calculadora-container {
-    background: #141414;
+        }.card {
+    background: rgba(13, 13, 13, 0.92);
+    padding: 40px;
+    border-radius: 40px;
+    text-align: center;
+    border: 2px solid #2a1a3a;
+    box-shadow: 0 0 0px rgba(155, 48, 255, 0);
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.5s ease;
+    backdrop-filter: blur(5px);
+}
+.card.activo {
+    border-color: #9b30ff;
+    box-shadow: 0 0 30px rgba(155, 48, 255, 0.25);
+}
+.card.activo:hover {
+    box-shadow: 0 0 50px rgba(155, 48, 255, 0.4);
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 50% 50%, rgba(155, 48, 255, 0.03), transparent 70%);
+    animation: rotarGlow 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+.card.activo::before {
+    opacity: 1;
+}
+@keyframes rotarGlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.horario-container {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 15px 20px;
+    border: 2px solid #3a2a4a;
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    transition: all 0.5s ease;
+}
+.horario-container.abierto {
+    border-color: #4aff8a;
+    box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
+}
+.horario-container.cerrado {
+    border-color: #ff6a7a;
+    box-shadow: 0 0 30px rgba(255, 106, 122, 0.1);
+}
+.horario-container .estado {
+    font-weight: 700;
+    font-size: 18px;
+}
+.horario-container .estado.abierto {
+    color: #4aff8a;
+}
+.horario-container .estado.cerrado {
+    color: #ff6a7a;
+}
+.horario-container .horario-texto {
+    color: #7a6a8a;
+    font-size: 14px;
+}
+.horario-container .horario-texto span {
+    color: #c084fc;
+    font-weight: 600;
+            }h1 {
+    font-size: 48px;
+    font-weight: 700;
+    color: #c084fc;
+    text-shadow: 0 0 15px #9b30ff, 0 0 30px #7a1fcc;
+    letter-spacing: 2px;
+}
+.line {
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #9b30ff, transparent);
+    margin: 10px auto 16px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #9b30ff;
+}
+.subtitle {
+    font-size: 17px;
+    color: #b0a0c0;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+.subtitle span {
+    color: #c084fc;
+    font-weight: 500;
+}
+
+.contador-container {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #ffd84a;
+    margin: 20px 0;
+    box-shadow: 0 0 30px rgba(255, 216, 74, 0.05);
+    transition: all 0.5s ease;
+}
+.contador-container.activo {
+    box-shadow: 0 0 50px rgba(255, 216, 74, 0.15);
+}
+.contador-container .numero {
+    font-size: 48px;
+    font-weight: 700;
+    color: #ffd84a;
+    text-shadow: 0 0 30px rgba(255, 216, 74, 0.3);
+}
+.contador-container .texto {
+    color: #b0a0c0;
+    font-size: 16px;
+    margin-top: 5px;
+}
+.contador-container .texto span {
+    color: #c084fc;
+    font-weight: 600;
+}
+
+.calculadora-container {
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
     border: 2px solid #3a2a4a;
@@ -175,8 +241,7 @@
     color: #ffd84a;
     font-size: 18px;
     margin-bottom: 10px;
-}
-.calculadora-container .input-group {
+}.calculadora-container .input-group {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -263,7 +328,34 @@
 .calculadora-container .resultado .mensaje-toca span {
     color: #ffd84a;
     font-weight: 600;
+}/* ===== MEJOR PRECIO ===== */
+.mejor-precio {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 15px 20px;
+    border: 2px solid #4aff8a;
+    margin: 15px 0;
+    text-align: center;
+    transition: all 0.3s ease;
 }
+.mejor-precio:hover {
+    box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
+}
+.mejor-precio .label {
+    color: #7a6a8a;
+    font-size: 14px;
+}
+.mejor-precio .valor {
+    color: #4aff8a;
+    font-size: 22px;
+    font-weight: 700;
+    margin: 5px 0;
+}
+.mejor-precio .detalle {
+    color: #b0a0c0;
+    font-size: 13px;
+}
+
 .productos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -271,7 +363,7 @@
     margin: 20px 0;
 }
 .producto-card {
-    background: #141414;
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 15px 12px;
     border: 2px solid #2a1a3a;
@@ -335,7 +427,7 @@
     margin: 20px 0;
 }
 .proximamente-card {
-    background: #141414;
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px 15px;
     border: 2px solid #2a1a3a;
@@ -368,8 +460,45 @@
     border-color: #3a2a4a;
     transform: translateY(-2px);
 }
+
+/* ===== CARRITO FLOTANTE ===== */
+.carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(13, 13, 13, 0.95);
+    border: 2px solid #9b30ff;
+    border-radius: 30px;
+    padding: 12px 20px;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+.carrito-flotante.mostrar {
+    display: flex;
+}
+.carrito-flotante .icono {
+    font-size: 24px;
+}
+.carrito-flotante .info {
+    color: #e0d0f0;
+    font-size: 14px;
+}
+.carrito-flotante .info .total {
+    color: #ffd84a;
+    font-weight: 700;
+    font-size: 18px;
+}
+.carrito-flotante .info .items {
+    color: #7a6a8a;
+    font-size: 12px;
+        }/* ===== CARRITO NORMAL ===== */
 .carrito {
-    background: #141414;
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
     border: 2px solid #3a2a4a;
@@ -420,6 +549,7 @@
     color: #ffd84a;
     font-size: 22px;
 }
+
 .form-group {
     margin: 15px 0;
     display: flex;
@@ -449,9 +579,70 @@
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 1px;
+}/* ===== HISTORIAL ===== */
+.historial-container {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    border: 2px solid #3a2a4a;
+    margin: 15px 0;
+    display: none;
+    transition: all 0.3s ease;
 }
+.historial-container.mostrar {
+    display: block;
+    border-color: #c084fc;
+}
+.historial-container h4 {
+    color: #c084fc;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+.historial-container .item-historial {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #2a1a3a;
+    color: #b0a0c0;
+    font-size: 13px;
+}
+.historial-container .item-historial:last-child {
+    border-bottom: none;
+}
+.historial-container .item-historial .fecha {
+    color: #7a6a8a;
+}
+.historial-container .item-historial .producto {
+    color: #e0d0f0;
+    font-weight: 600;
+}
+.historial-container .item-historial .monto {
+    color: #ffd84a;
+}
+.historial-container .vacio {
+    color: #5a4a6a;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 14px;
+}
+.historial-container .btn-ver-historial {
+    background: transparent;
+    border: 1px solid #c084fc;
+    color: #c084fc;
+    padding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+.historial-container .btn-ver-historial:hover {
+    background: #c084fc;
+    color: #0a0a0a;
+}
+
 .comprobante-area {
-    background: #141414;
+    background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
     border: 2px dashed #3a2a4a;
@@ -489,92 +680,94 @@
 .comprobante-preview img {
     width: 100%;
     display: block;
-}        .referencia-input {
-            max-width: 200px;
-            margin-top: 10px;
-            background: #1a1a1a;
-            border: 2px solid #3a2a4a;
-            border-radius: 30px;
-            padding: 12px 20px;
-            color: #e0d0f0;
-            font-size: 14px;
-            width: 100%;
-            max-width: 200px;
-            outline: none;
-            text-align: center;
-            transition: 0.3s ease;
-        }
-        .referencia-input:focus {
-            border-color: #ffd84a;
-            box-shadow: 0 0 30px rgba(255, 216, 74, 0.15);
-        }
-        .pago-movil {
-            background: #141414;
-            border-radius: 20px;
-            padding: 25px;
-            border: 2px solid #4aff8a;
-            margin: 20px 0;
-            text-align: left;
-            transition: all 0.3s ease;
-        }
-        .pago-movil:hover {
-            box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
-        }
-        .pago-movil h3 {
-            color: #4aff8a;
-            font-size: 20px;
-            text-align: center;
-            margin-bottom: 15px;
-        }
-        .pago-movil .info {
-            color: #d0c0e0;
-            font-size: 15px;
-            line-height: 1.8;
-        }
-        .pago-movil .info strong {
-            color: #c084fc;
-        }
-        .btn {
-            display: inline-block;
-            padding: 14px 48px;
-            background: transparent;
-            color: #d8b4fe;
-            font-weight: 700;
-            font-size: 17px;
-            border: 2px solid #9b30ff;
-            border-radius: 60px;
-            text-decoration: none;
-            letter-spacing: 1.5px;
-            transition: 0.3s ease;
-            box-shadow: 0 0 15px rgba(155, 48, 255, 0.2);
-            text-transform: uppercase;
-            cursor: pointer;
-            width: 100%;
-            max-width: 400px;
-        }
-        .btn:hover:not(:disabled) {
-            background: #9b30ff;
-            color: #0a0a0a;
-            box-shadow: 0 0 35px #9b30ff;
-            transform: scale(1.03);
-        }
-        .btn:disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        .btn-success {
-            background: #2a8a4a;
-            border-color: #2a8a4a;
-            color: #fff;
-        }
-        .btn-success:hover:not(:disabled) {
-            background: #4aff8a;
-            border-color: #4aff8a;
-            color: #0a0a0a;
-            box-shadow: 0 0 35px rgba(74, 255, 138, 0.4);
-        }
+        }.referencia-input {
+    max-width: 200px;
+    margin-top: 10px;
+    background: #1a1a1a;
+    border: 2px solid #3a2a4a;
+    border-radius: 30px;
+    padding: 12px 20px;
+    color: #e0d0f0;
+    font-size: 14px;
+    width: 100%;
+    max-width: 200px;
+    outline: none;
+    text-align: center;
+    transition: 0.3s ease;
+}
+.referencia-input:focus {
+    border-color: #ffd84a;
+    box-shadow: 0 0 30px rgba(255, 216, 74, 0.15);
+}
+
+.pago-movil {
+    background: rgba(20, 20, 20, 0.9);
+    border-radius: 20px;
+    padding: 25px;
+    border: 2px solid #4aff8a;
+    margin: 20px 0;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+.pago-movil:hover {
+    box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
+}
+.pago-movil h3 {
+    color: #4aff8a;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+.pago-movil .info {
+    color: #d0c0e0;
+    font-size: 15px;
+    line-height: 1.8;
+}
+.pago-movil .info strong {
+    color: #c084fc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 48px;
+    background: transparent;
+    color: #d8b4fe;
+    font-weight: 700;
+    font-size: 17px;
+    border: 2px solid #9b30ff;
+    border-radius: 60px;
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(155, 48, 255, 0.2);
+    text-transform: uppercase;
+    cursor: pointer;
+    width: 100%;
+    max-width: 400px;
+}
+.btn:hover:not(:disabled) {
+    background: #9b30ff;
+    color: #0a0a0a;
+    box-shadow: 0 0 35px #9b30ff;
+    transform: scale(1.03);
+}
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.btn-success {
+    background: #2a8a4a;
+    border-color: #2a8a4a;
+    color: #fff;
+}
+.btn-success:hover:not(:disabled) {
+    background: #4aff8a;
+    border-color: #4aff8a;
+    color: #0a0a0a;
+    box-shadow: 0 0 35px rgba(74, 255, 138, 0.4);
+    }        /* ===== TOAST ===== */
         .toast {
             position: fixed;
             bottom: 30px;
@@ -589,7 +782,7 @@
             font-weight: 600;
             opacity: 0;
             transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: 999;
+            z-index: 9999;
             pointer-events: none;
             max-width: 90%;
             text-align: center;
@@ -610,6 +803,7 @@
             border-color: #ffd84a;
             box-shadow: 0 0 40px rgba(255, 216, 74, 0.2);
         }
+
         .footer-phone {
             margin-top: 20px;
             padding-top: 16px;
@@ -620,6 +814,7 @@
         .footer-phone strong {
             color: #c084fc;
         }
+
         @media (max-width: 600px) {
             .card { padding: 25px 18px; }
             h1 { font-size: 34px; }
@@ -630,6 +825,11 @@
             .producto-card .precio { font-size: 15px; }
             .calculadora-container .input-group input { width: 120px; }
             .horario-container { font-size: 13px; padding: 12px 15px; }
+            .carrito-flotante { padding: 10px 15px; bottom: 10px; right: 10px; }
+            .carrito-flotante .info { font-size: 12px; }
+            .carrito-flotante .info .total { font-size: 15px; }
+            .cartel-cerrado h1 { font-size: 32px; }
+            .cartel-cerrado .cuenta { font-size: 28px; }
         }
         @media (max-width: 400px) {
             .productos-grid { grid-template-columns: 1fr; }
@@ -639,63 +839,82 @@
     </style>
 </head>
 <body>
-    <div class="container">
 
-        <div class="card" id="cardPrincipal">
-            <h1>💎 DiviMarket</h1>
-            <div class="line"></div>
-            <p class="subtitle">Recargas Free Fire • <span>Rapidez y confianza</span></p>
+    <!-- ===== CARTEL DE TIENDA CERRADA ===== -->
+    <div class="cartel-cerrado" id="cartelCerrado">
+        <div class="icono">🔴</div>
+        <h1>TIENDA CERRADA</h1>
+        <div class="sub">Vuelve a las <span id="horaAperturaTexto">10:30 AM</span> para recargar</div>
+        <div class="cuenta" id="cuentaApertura">--:--:--</div>
+        <div class="horario">📅 Lunes a Domingo • <span>10:30 AM</span> - <span>12:00 AM</span></div>
+    </div>
 
-            <div class="horario-container" id="horarioContainer">
-                <span class="estado" id="estadoHorario">🟢 Abierto</span>
-                <span class="horario-texto">🕐 <span>10:30 AM</span> - <span>12:00 AM</span> (Lunes a Domingo)</span>
-            </div>
+    <div class="container" id="contenidoTienda"><div class="card" id="cardPrincipal">
+    <h1>💎 DiviMarket</h1>
+    <div class="line"></div>
+    <p class="subtitle">Recargas Free Fire • <span>Rapidez y confianza</span></p>
 
-            <div class="contador-container" id="contadorContainer">
-                <div class="numero" id="contadorClientes">4,510</div>
-                <div class="texto">✨ <span>Clientes atendidos</span> ✨</div>
-            </div>        <div class="calculadora-container" id="calculadoraContainer">
-            <h3>💵 Conversor Dólar a Diamantes</h3>
-            <div class="input-group">
-                <input type="number" id="dolaresInput" placeholder="Ej: 5" step="0.01" min="0" />
-                <button class="btn-calc" onclick="calcularDolares()">Calcular</button>
-            </div>
-            <div class="resultado" id="resultadoCalculadora">
-                <div>💰 <span class="monto" id="montoBs">0</span> Bs</div>
-                <div style="color:#7a6a8a; font-size:13px; margin-top:5px;">💎 <span id="diamantesSugeridos">0</span> diamantes</div>
-                <div class="sugerencias" id="sugerenciasPaquetes"></div>
-                <div class="mensaje-toca" id="mensajeToca">👆 <span>Toca</span> los paquetes sugeridos para <span>añadirlos al carrito</span></div>
-            </div>
+    <!-- HORARIO -->
+    <div class="horario-container" id="horarioContainer">
+        <span class="estado" id="estadoHorario">🟢 Abierto</span>
+        <span class="horario-texto">🕐 <span>10:30 AM</span> - <span>12:00 AM</span> (Lunes a Domingo)</span>
+    </div>
+
+    <!-- CONTADOR CLIENTES -->
+    <div class="contador-container" id="contadorContainer">
+        <div class="numero" id="contadorClientes">4,510</div>
+        <div class="texto">✨ <span>Clientes atendidos</span> ✨</div>
+    </div>
+
+    <!-- MEJOR PRECIO -->
+    <div class="mejor-precio" id="mejorPrecio">
+        <div class="label">💎 MEJOR PRECIO POR DIAMANTE</div>
+        <div class="valor" id="mejorPrecioValor">Cargando...</div>
+        <div class="detalle">Aprovecha la mejor oferta</div>
+    </div>
+
+    <!-- CALCULADORA DÓLARES -->
+    <div class="calculadora-container" id="calculadoraContainer">
+        <h3>💵 Conversor Dólar a Diamantes</h3>
+        <div class="input-group">
+            <input type="number" id="dolaresInput" placeholder="Ej: 5" step="0.01" min="0" />
+            <button class="btn-calc" onclick="calcularDolares()">Calcular</button>
         </div>
-
-        <h2 style="color:#c084fc; font-size:20px; margin:20px 0 10px;">🔥 Selecciona tus recargas</h2>
-        <div class="productos-grid" id="productosGrid"></div>
-
-        <!-- ===== PRÓXIMAMENTE ===== -->
-        <h2 style="color:#7a6a8a; font-size:18px; margin:30px 0 10px;">📌 Próximamente</h2>
-        <div class="proximamente-grid">
-            <div class="proximamente-card">
-                <div class="icono">🔫</div>
-                <div class="nombre">Blood Strike</div>
-                <span class="badge">Próximamente</span>
-            </div>
-            <div class="proximamente-card">
-                <div class="icono">⚔️</div>
-                <div class="nombre">Mobile Legends</div>
-                <span class="badge">Próximamente</span>
-            </div>
-            <div class="proximamente-card">
-                <div class="icono">🤖</div>
-                <div class="nombre">Roblox</div>
-                <span class="badge">Próximamente</span>
-            </div>
-            <div class="proximamente-card">
-                <div class="icono">🎬</div>
-                <div class="nombre">Netflix</div>
-                <span class="badge">Próximamente</span>
-            </div>
+        <div class="resultado" id="resultadoCalculadora">
+            <div>💰 <span class="monto" id="montoBs">0</span> Bs</div>
+            <div style="color:#7a6a8a; font-size:13px; margin-top:5px;">💎 <span id="diamantesSugeridos">0</span> diamantes</div>
+            <div class="sugerencias" id="sugerenciasPaquetes"></div>
+            <div class="mensaje-toca" id="mensajeToca">👆 <span>Toca</span> los paquetes sugeridos para <span>añadirlos al carrito</span></div>
         </div>
+    </div>
 
+    <h2 style="color:#c084fc; font-size:20px; margin:20px 0 10px;">🔥 Selecciona tus recargas</h2>
+    <div class="productos-grid" id="productosGrid"></div>
+
+    <!-- PRÓXIMAMENTE -->
+    <h2 style="color:#7a6a8a; font-size:18px; margin:30px 0 10px;">📌 Próximamente</h2>
+    <div class="proximamente-grid">
+        <div class="proximamente-card">
+            <div class="icono">🔫</div>
+            <div class="nombre">Blood Strike</div>
+            <span class="badge">Próximamente</span>
+        </div>
+        <div class="proximamente-card">
+            <div class="icono">⚔️</div>
+            <div class="nombre">Mobile Legends</div>
+            <span class="badge">Próximamente</span>
+        </div>
+        <div class="proximamente-card">
+            <div class="icono">🤖</div>
+            <div class="nombre">Roblox</div>
+            <span class="badge">Próximamente</span>
+        </div>
+        <div class="proximamente-card">
+            <div class="icono">🎬</div>
+            <div class="nombre">Netflix</div>
+            <span class="badge">Próximamente</span>
+        </div>
+    </div>        <!-- CARRITO -->
         <div class="carrito" id="carrito">
             <h3>🛒 Tu carrito</h3>
             <div id="carritoItems"></div>
@@ -706,16 +925,30 @@
             <div style="color:#7a6a8a; font-size:13px; margin-top:5px;" id="totalDiamantes">💎 0 diamantes</div>
         </div>
 
+        <!-- HISTORIAL -->
+        <div class="historial-container" id="historialContainer">
+            <h4>📜 Historial de pedidos</h4>
+            <div id="historialLista">
+                <div class="vacio">No hay pedidos registrados para este ID</div>
+            </div>
+            <button class="btn-ver-historial" onclick="verHistorial()">🔄 Ver mi historial</button>
+        </div>
+
+        <!-- ID DE FREE FIRE -->
         <div class="form-group">
             <label>🎮 ID de Free Fire</label>
-            <input type="text" id="playerId" placeholder="Ej: 1234567890" maxlength="15" />
+            <input type="text" id="playerId" placeholder="Ej: 1234567890" maxlength="15" oninput="verificarCampos()" />
+            <button class="btn btn-small" style="max-width:200px; padding:8px 20px; font-size:13px; margin-top:5px;" onclick="verificarID()">🔍 Verificar ID</button>
+            <div id="nombreJugador" style="color:#b0a0c0; font-size:14px; min-height:24px; margin-top:5px;"></div>
         </div>
 
+        <!-- TELÉFONO -->
         <div class="form-group">
             <label>📱 Teléfono de contacto</label>
-            <input type="text" id="telefono" placeholder="0424-123-4567" />
+            <input type="text" id="telefono" placeholder="0424-123-4567" oninput="verificarCampos()" />
         </div>
 
+        <!-- COMPROBANTE -->
         <div class="form-group">
             <label>📸 Comprobante de pago</label>
             <div class="comprobante-area" id="comprobanteArea" onclick="document.getElementById('comprobanteInput').click()">
@@ -726,9 +959,10 @@
             <div class="comprobante-preview" id="comprobantePreview">
                 <img id="comprobanteImg" src="" alt="Comprobante" />
             </div>
-            <input type="text" id="referenciaInput" placeholder="🔢 Últimos 4 dígitos de la referencia" maxlength="4" class="referencia-input" />
+            <input type="text" id="referenciaInput" placeholder="🔢 Últimos 4 dígitos de la referencia" maxlength="4" class="referencia-input" oninput="verificarCampos()" />
         </div>
 
+        <!-- PAGO MÓVIL -->
         <div class="pago-movil">
             <h3>💳 PAGO MÓVIL</h3>
             <div class="info">
@@ -746,9 +980,18 @@
             📞 <strong>+58 424 2488 569</strong> — Soporte 24/7
         </div>
     </div>
-
 </div>
 
+<!-- ===== CARRITO FLOTANTE ===== -->
+<div class="carrito-flotante" id="carritoFlotante">
+    <span class="icono">🛒</span>
+    <div class="info">
+        <div class="total" id="flotanteTotal">Bs 0</div>
+        <div class="items" id="flotanteItems">0 productos</div>
+    </div>
+</div>
+
+<!-- ===== TOAST ===== -->
 <div class="toast" id="toast"></div><script>
     // ================================================================
     // CONFIGURACIÓN
@@ -769,9 +1012,10 @@
 
     let carrito = [];
     let contador = parseInt(localStorage.getItem('contadorClientes')) || 4510;
+    let historial = JSON.parse(localStorage.getItem('historial_' + 'default')) || [];
 
     // ================================================================
-    // HORARIO
+    // HORARIO Y CARTEL DE CIERRE
     // ================================================================
     function verificarHorario() {
         const ahora = new Date();
@@ -779,19 +1023,32 @@
         const abierto = hora >= HORA_APERTURA && hora < HORA_CIERRE;
         const container = document.getElementById('horarioContainer');
         const estado = document.getElementById('estadoHorario');
+        const cartel = document.getElementById('cartelCerrado');
+        const contenido = document.getElementById('contenidoTienda');
 
         if (abierto) {
             container.className = 'horario-container abierto';
             estado.className = 'estado abierto';
             estado.textContent = '🟢 Abierto';
+            cartel.classList.remove('mostrar');
+            contenido.style.display = 'block';
             document.getElementById('cardPrincipal').classList.add('activo');
         } else {
             container.className = 'horario-container cerrado';
             estado.className = 'estado cerrado';
             estado.textContent = '🔴 Cerrado';
+            cartel.classList.add('mostrar');
+            contenido.style.display = 'none';
             document.getElementById('cardPrincipal').classList.remove('activo');
-            document.getElementById('btnSolicitar').disabled = true;
-            document.getElementById('btnSolicitar').textContent = '⛔ Tienda cerrada';
+            
+            // Calcular tiempo restante para apertura
+            let minutosRestantes = (HORA_APERTURA - hora) * 60;
+            if (minutosRestantes < 0) minutosRestantes += 24 * 60;
+            const horas = Math.floor(minutosRestantes / 60);
+            const minutos = Math.floor(minutosRestantes % 60);
+            const segundos = Math.floor((minutosRestantes % 1) * 60);
+            document.getElementById('cuentaApertura').textContent = 
+                `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
         }
         return abierto;
     }
@@ -810,7 +1067,7 @@
         clearTimeout(t._timeout);
         t._timeout = setTimeout(() => t.classList.remove('show'), duration);
     }// ================================================================
-// CONTADOR
+// CONTADOR DE CLIENTES
 // ================================================================
 function actualizarContador() {
     document.getElementById('contadorClientes').textContent = contador.toLocaleString();
@@ -822,11 +1079,22 @@ function actualizarContador() {
 }
 
 // ================================================================
-// ACTIVAR NEONES
+// MEJOR PRECIO POR DIAMANTE
 // ================================================================
-function activarNeones() {
-    document.getElementById('cardPrincipal').classList.add('activo');
-    document.getElementById('calculadoraContainer').classList.add('activo');
+function calcularMejorPrecio() {
+    let mejor = null;
+    let mejorValor = Infinity;
+    PRODUCTOS.forEach(p => {
+        const valor = p.precio / p.diamantes;
+        if (valor < mejorValor) {
+            mejorValor = valor;
+            mejor = p;
+        }
+    });
+    if (mejor) {
+        document.getElementById('mejorPrecioValor').textContent = 
+            `💎 ${mejor.diamantes} diamantes → Bs ${mejor.precio.toLocaleString()} (${mejorValor.toFixed(2)} Bs/diamante)`;
+    }
 }
 
 // ================================================================
@@ -851,6 +1119,7 @@ function cargarProductos() {
         `;
         grid.appendChild(div);
     });
+    calcularMejorPrecio();
 }
 
 // ================================================================
@@ -884,18 +1153,28 @@ function cambiarCantidad(id, delta) {
     const itemsDiv = document.getElementById('carritoItems');
     const totalDiv = document.getElementById('totalCarrito');
     const diamantesDiv = document.getElementById('totalDiamantes');
+    const flotante = document.getElementById('carritoFlotante');
+    const flotanteTotal = document.getElementById('flotanteTotal');
+    const flotanteItems = document.getElementById('flotanteItems');
+
     if (carrito.length === 0) {
         carritoDiv.classList.remove('mostrar');
+        flotante.classList.remove('mostrar');
         return;
     }
+
     carritoDiv.classList.add('mostrar');
+    flotante.classList.add('mostrar');
     let html = '';
     let total = 0;
     let totalDiamantes = 0;
+    let totalItems = 0;
+
     carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
         total += subtotal;
         totalDiamantes += item.diamantes * item.cantidad;
+        totalItems += item.cantidad;
         html += `
             <div class="item">
                 <span class="diamantes">💎 ${item.diamantes} × ${item.cantidad}</span>
@@ -903,14 +1182,14 @@ function cambiarCantidad(id, delta) {
             </div>
         `;
     });
+
     itemsDiv.innerHTML = html;
     totalDiv.textContent = `Bs ${total.toLocaleString()}`;
     diamantesDiv.textContent = `💎 ${totalDiamantes.toLocaleString()} diamantes`;
+    flotanteTotal.textContent = `Bs ${total.toLocaleString()}`;
+    flotanteItems.textContent = `${totalItems} producto${totalItems > 1 ? 's' : ''}`;
 }
 
-// ================================================================
-// VERIFICAR CAMPOS
-// ================================================================
 function verificarCampos() {
     const btn = document.getElementById('btnSolicitar');
     const playerId = document.getElementById('playerId').value.trim();
@@ -931,186 +1210,272 @@ function verificarCampos() {
             btn.textContent = '✅ Solicitar Recarga';
         }
     }
-}// ================================================================
-// CALCULADORA DE DÓLARES
-// ================================================================
-function calcularDolares() {
-    const input = document.getElementById('dolaresInput');
-    const dolares = parseFloat(input.value);
-    const resultadoDiv = document.getElementById('resultadoCalculadora');
-    const montoBs = document.getElementById('montoBs');
-    const diamantesSugeridos = document.getElementById('diamantesSugeridos');
-    const sugerenciasDiv = document.getElementById('sugerenciasPaquetes');
-    const mensajeToca = document.getElementById('mensajeToca');
-    if (!dolares || dolares <= 0) {
-        showToast('⚠️ Ingresa un monto válido', 'error');
-        return;
-    }
-    const bs = dolares * TASA_DOLAR;
-    montoBs.textContent = bs.toLocaleString();
-    resultadoDiv.classList.add('mostrar');
-    mensajeToca.style.display = 'block';
-    const diamantesAprox = Math.floor(bs / 6.5);
-    diamantesSugeridos.textContent = diamantesAprox.toLocaleString();
-    let sugerencias = [];
-    let restante = bs;
-    const ordenados = [...PRODUCTOS].sort((a, b) => b.precio - a.precio);
-    for (const p of ordenados) {
-        if (restante >= p.precio) {
-            const cantidad = Math.floor(restante / p.precio);
-            if (cantidad > 0) {
-                sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
-                restante = restante - (p.precio * cantidad);
-            }
-        }
-    }
-    if (sugerencias.length === 0) {
-        sugerenciasDiv.innerHTML = `
-            <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
-                💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
-            </div>
-        `;
-        return;
-    }
-    let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
-    sugerencias.forEach(s => {
-        html += `
-            <div class="tag" onclick="agregarSugerencia(${s.id}, ${s.cantidad})">
-                <span class="check">➕</span> ${s.cantidad}x 💎 ${s.diamantes} (Bs ${s.total.toLocaleString()})
-            </div>
-        `;
-    });
-    if (restante > 0) {
-        html += `
-            <div style="color:#7a6a8a; font-size:12px; margin-top:8px;">
-                💰 Sobrante: Bs ${restante.toLocaleString()}
-            </div>
-        `;
-    }
-    sugerenciasDiv.innerHTML = html;
-}function agregarSugerencia(id, cantidad) {
-    if (!verificarHorario()) {
-        showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
-        return;
-    }
-    const producto = PRODUCTOS.find(p => p.id === id);
-    if (!producto) return;
-    const existente = carrito.find(c => c.id === id);
-    if (existente) {
-        existente.cantidad += cantidad;
-    } else {
-        carrito.push({ ...producto, cantidad: cantidad });
-    }
-    document.getElementById(`cantidad-${id}`).textContent =
-        carrito.find(c => c.id === id)?.cantidad || 0;
-    renderCarrito();
-    verificarCampos();
-    activarNeones();
-    showToast(`✅ Agregado ${cantidad}x ${producto.diamantes} diamantes`, 'success');
 }
 
-// ================================================================
-// COMPROBANTE
-// ================================================================
-document.addEventListener('DOMContentLoaded', function() {
-    const input = document.getElementById('comprobanteInput');
-    const preview = document.getElementById('comprobantePreview');
-    const img = document.getElementById('comprobanteImg');
-    const area = document.getElementById('comprobanteArea');
-
-    input.addEventListener('change', function(e) {
-        const file = this.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onload = function(ev) {
-                img.src = ev.target.result;
-                preview.style.display = 'block';
-                area.style.display = 'none';
-                showToast('✅ Comprobante cargado', 'success', 1500);
-                verificarCampos();
-                activarNeones();
-            };
-            reader.readAsDataURL(file);
-        }
-    });
-
-    document.getElementById('referenciaInput').addEventListener('input', function() {
-        this.value = this.value.replace(/\D/g, '').slice(0, 4);
-        verificarCampos();
-    });
-
-    document.getElementById('playerId').addEventListener('input', verificarCampos);
-    document.getElementById('telefono').addEventListener('input', verificarCampos);
-
-    document.getElementById('dolaresInput').addEventListener('keydown', function(e) {
-        if (e.key === 'Enter') calcularDolares();
-    });
-
-    setInterval(() => {
-        verificarHorario();
-        verificarCampos();
-    }, 60000);
-});// ================================================================
-// SOLICITAR PEDIDO
-// ================================================================
-function solicitarPedido() {
-    if (!verificarHorario()) {
-        showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
-        return;
-    }
-
-    const playerId = document.getElementById('playerId').value.trim();
-    const telefono = document.getElementById('telefono').value.trim();
-    const referencia = document.getElementById('referenciaInput').value.trim();
-    const comprobanteInput = document.getElementById('comprobanteInput');
-    const comprobanteFile = comprobanteInput.files[0];
-
-    if (!playerId || !telefono || !referencia || !comprobanteFile || carrito.length === 0) {
-        showToast('⚠️ Completa todos los campos', 'error');
-        return;
-    }
-
-    let total = 0;
-    let totalDiamantes = 0;
-    let detalleProductos = '';
-
-    carrito.forEach(item => {
-        const subtotal = item.precio * item.cantidad;
-        total += subtotal;
-        totalDiamantes += item.diamantes * item.cantidad;
-        detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
-    });
-
-    const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
-        `🎮 *ID de Free Fire:* ${playerId}%0A` +
-        `📱 *Teléfono:* ${telefono}%0A` +
-        `📦 *Productos:*%0A${detalleProductos}%0A` +
-        `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
-        `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
-        `🔢 *Referencia:* ${referencia}%0A%0A` +
-        `✅ *Realiza la recarga y confirma al cliente*`;
-
-    const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
-    window.open(url, '_blank');
-
-    contador++;
-    actualizarContador();
-
-    showToast('📱 Pedido enviado por WhatsApp', 'success', 3000);
-
-    setTimeout(() => {
-        location.reload();
-    }, 2000);
+function activarNeones() {
+    document.getElementById('cardPrincipal').classList.add('activo');
+    document.getElementById('calculadoraContainer').classList.add('activo');
 }        // ================================================================
+        // VERIFICAR ID
+        // ================================================================
+        function verificarID() {
+            const id = document.getElementById('playerId').value.trim();
+            const display = document.getElementById('nombreJugador');
+            if (!id) {
+                display.textContent = '⚠️ Ingresa un ID válido';
+                display.style.color = '#ff6a7a';
+                return;
+            }
+            display.textContent = `🎮 ID: ${id}`;
+            display.style.color = '#4aff8a';
+            // Cargar historial para este ID
+            cargarHistorial(id);
+        }
+
+        // ================================================================
+        // HISTORIAL
+        // ================================================================
+        function cargarHistorial(id) {
+            const key = 'historial_' + id;
+            historial = JSON.parse(localStorage.getItem(key)) || [];
+            const container = document.getElementById('historialContainer');
+            const lista = document.getElementById('historialLista');
+
+            if (historial.length === 0) {
+                lista.innerHTML = `<div class="vacio">No hay pedidos registrados para este ID</div>`;
+                container.classList.remove('mostrar');
+                return;
+            }
+
+            container.classList.add('mostrar');
+            let html = '';
+            historial.slice().reverse().forEach(item => {
+                html += `
+                    <div class="item-historial">
+                        <span class="fecha">${item.fecha}</span>
+                        <span class="producto">${item.producto}</span>
+                        <span class="monto">Bs ${item.monto.toLocaleString()}</span>
+                    </div>
+                `;
+            });
+            lista.innerHTML = html;
+        }
+
+        function verHistorial() {
+            const id = document.getElementById('playerId').value.trim();
+            if (!id) {
+                showToast('⚠️ Ingresa un ID primero', 'error');
+                return;
+            }
+            cargarHistorial(id);
+        }
+
+        // ================================================================
+        // CALCULADORA DE DÓLARES
+        // ================================================================
+        function calcularDolares() {
+            const input = document.getElementById('dolaresInput');
+            const dolares = parseFloat(input.value);
+            const resultadoDiv = document.getElementById('resultadoCalculadora');
+            const montoBs = document.getElementById('montoBs');
+            const diamantesSugeridos = document.getElementById('diamantesSugeridos');
+            const sugerenciasDiv = document.getElementById('sugerenciasPaquetes');
+            const mensajeToca = document.getElementById('mensajeToca');
+
+            if (!dolares || dolares <= 0) {
+                showToast('⚠️ Ingresa un monto válido', 'error');
+                return;
+            }
+
+            const bs = dolares * TASA_DOLAR;
+            montoBs.textContent = bs.toLocaleString();
+            resultadoDiv.classList.add('mostrar');
+            mensajeToca.style.display = 'block';
+
+            const diamantesAprox = Math.floor(bs / 6.5);
+            diamantesSugeridos.textContent = diamantesAprox.toLocaleString();
+
+            let sugerencias = [];
+            let restante = bs;
+            const ordenados = [...PRODUCTOS].sort((a, b) => b.precio - a.precio);
+
+            for (const p of ordenados) {
+                if (restante >= p.precio) {
+                    const cantidad = Math.floor(restante / p.precio);
+                    if (cantidad > 0) {
+                        sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
+                        restante = restante - (p.precio * cantidad);
+                    }
+                }
+            }
+
+            if (sugerencias.length === 0) {
+                sugerenciasDiv.innerHTML = `
+                    <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
+                        💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
+            sugerencias.forEach(s => {
+                html += `
+                    <div class="tag" onclick="agregarSugerencia(${s.id}, ${s.cantidad})">
+                        <span class="check">➕</span> ${s.cantidad}x 💎 ${s.diamantes} (Bs ${s.total.toLocaleString()})
+                    </div>
+                `;
+            });
+
+            if (restante > 0) {
+                html += `
+                    <div style="color:#7a6a8a; font-size:12px; margin-top:8px;">
+                        💰 Sobrante: Bs ${restante.toLocaleString()}
+                    </div>
+                `;
+            }
+            sugerenciasDiv.innerHTML = html;
+        }
+
+        function agregarSugerencia(id, cantidad) {
+            if (!verificarHorario()) {
+                showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
+                return;
+            }
+            const producto = PRODUCTOS.find(p => p.id === id);
+            if (!producto) return;
+            const existente = carrito.find(c => c.id === id);
+            if (existente) {
+                existente.cantidad += cantidad;
+            } else {
+                carrito.push({ ...producto, cantidad: cantidad });
+            }
+            document.getElementById(`cantidad-${id}`).textContent =
+                carrito.find(c => c.id === id)?.cantidad || 0;
+            renderCarrito();
+            verificarCampos();
+            activarNeones();
+            showToast(`✅ Agregado ${cantidad}x ${producto.diamantes} diamantes`, 'success');
+        }
+
+        // ================================================================
+        // COMPROBANTE
+        // ================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('comprobanteInput');
+            const preview = document.getElementById('comprobantePreview');
+            const img = document.getElementById('comprobanteImg');
+            const area = document.getElementById('comprobanteArea');
+
+            input.addEventListener('change', function(e) {
+                const file = this.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(ev) {
+                        img.src = ev.target.result;
+                        preview.style.display = 'block';
+                        area.style.display = 'none';
+                        showToast('✅ Comprobante cargado', 'success', 1500);
+                        verificarCampos();
+                        activarNeones();
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            document.getElementById('referenciaInput').addEventListener('input', function() {
+                this.value = this.value.replace(/\D/g, '').slice(0, 4);
+                verificarCampos();
+            });
+
+            document.getElementById('playerId').addEventListener('input', verificarCampos);
+            document.getElementById('telefono').addEventListener('input', verificarCampos);
+
+            document.getElementById('dolaresInput').addEventListener('keydown', function(e) {
+                if (e.key === 'Enter') calcularDolares();
+            });
+
+            // Verificar horario cada 10 segundos
+            setInterval(() => {
+                verificarHorario();
+                verificarCampos();
+            }, 10000);
+
+            // Ocultar mensaje de "toca" hasta que se calcule
+            document.getElementById('mensajeToca').style.display = 'none';
+        });
+
+        // ================================================================
+        // SOLICITAR PEDIDO
+        // ================================================================
+        function solicitarPedido() {
+            if (!verificarHorario()) {
+                showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
+                return;
+            }
+
+            const playerId = document.getElementById('playerId').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const referencia = document.getElementById('referenciaInput').value.trim();
+            const comprobanteInput = document.getElementById('comprobanteInput');
+            const comprobanteFile = comprobanteInput.files[0];
+
+            if (!playerId || !telefono || !referencia || !comprobanteFile || carrito.length === 0) {
+                showToast('⚠️ Completa todos los campos', 'error');
+                return;
+            }
+
+            let total = 0;
+            let totalDiamantes = 0;
+            let detalleProductos = '';
+
+            carrito.forEach(item => {
+                const subtotal = item.precio * item.cantidad;
+                total += subtotal;
+                totalDiamantes += item.diamantes * item.cantidad;
+                detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
+            });
+
+            const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
+                `🎮 *ID de Free Fire:* ${playerId}%0A` +
+                `📱 *Teléfono:* ${telefono}%0A` +
+                `📦 *Productos:*%0A${detalleProductos}%0A` +
+                `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
+                `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
+                `🔢 *Referencia:* ${referencia}%0A%0A` +
+                `✅ *Realiza la recarga y confirma al cliente*`;
+
+            const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
+            window.open(url, '_blank');
+
+            // Guardar en historial
+            const key = 'historial_' + playerId;
+            const historialActual = JSON.parse(localStorage.getItem(key)) || [];
+            historialActual.push({
+                fecha: new Date().toLocaleDateString(),
+                producto: `${totalDiamantes} diamantes`,
+                monto: total
+            });
+            localStorage.setItem(key, JSON.stringify(historialActual));
+
+            // Subir contador
+            contador++;
+            actualizarContador();
+
+            showToast('✅ ¡Pedido enviado! Espera confirmación por WhatsApp', 'success', 4000);
+
+            setTimeout(() => {
+                location.reload();
+            }, 3000);
+        }
+
+        // ================================================================
         // INICIAR
         // ================================================================
         document.addEventListener('DOMContentLoaded', () => {
             cargarProductos();
             actualizarContador();
             verificarHorario();
-
-            // Ocultar mensaje de "toca" hasta que se calcule
-            document.getElementById('mensajeToca').style.display = 'none';
 
             document.getElementById('playerId').addEventListener('keydown', e => {
                 if (e.key === 'Enter') document.getElementById('telefono').focus();
@@ -1126,6 +1491,7 @@ function solicitarPedido() {
 
             console.log('💡 DiviMarket cargado');
             console.log('📱 WhatsApp:', WHATSAPP_VENDEDOR);
+            console.log('💰 Tasa: $1 =', TASA_DOLAR, 'Bs');
         });
     </script>
 </body>
