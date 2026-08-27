@@ -32,51 +32,48 @@
             width: 100%;
             position: relative;
             z-index: 1;
-        }
-
-        .loader-screen {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: #0a0a0a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 10000;
-            flex-direction: column;
-            transition: opacity 0.8s ease;
-        }
-        .loader-screen.oculto {
-            opacity: 0;
-            pointer-events: none;
-        }
-        .loader-screen .logo {
-            font-size: 48px;
-            font-weight: 700;
-            color: #c084fc;
-            text-shadow: 0 0 30px #9b30ff;
-            margin-bottom: 20px;
-        }
-        .loader-screen .spinner {
-            width: 60px;
-            height: 60px;
-            border: 4px solid #2a1a3a;
-            border-top: 4px solid #9b30ff;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        .loader-screen .cargando-texto {
-            color: #7a6a8a;
-            margin-top: 15px;
-            font-size: 14px;
-            letter-spacing: 2px;
-        }.id-screen {
+        }.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    flex-direction: column;
+    transition: opacity 0.8s ease;
+}
+.loader-screen.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-screen .logo {
+    font-size: 48px;
+    font-weight: 700;
+    color: #c084fc;
+    text-shadow: 0 0 30px #9b30ff;
+    margin-bottom: 20px;
+}.loader-screen .spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #2a1a3a;
+    border-top: 4px solid #9b30ff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loader-screen .cargando-texto {
+    color: #7a6a8a;
+    margin-top: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}.id-screen {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,8 +92,7 @@
     color: #b0a0c0;
     font-size: 18px;
     margin-bottom: 30px;
-}
-.id-screen .input-id {
+}.id-screen .input-id {
     background: #1a1a1a;
     border: 2px solid #3a2a4a;
     border-radius: 30px;
@@ -112,8 +108,7 @@
 .id-screen .input-id:focus {
     border-color: #9b30ff;
     box-shadow: 0 0 30px rgba(155, 48, 255, 0.2);
-}
-.id-screen .btn-entrar {
+}.id-screen .btn-entrar {
     margin-top: 20px;
     padding: 16px 48px;
     background: linear-gradient(135deg, #9b30ff, #7a1fcc);
@@ -128,8 +123,7 @@
     letter-spacing: 1.5px;
     max-width: 350px;
     width: 100%;
-}
-.id-screen .btn-entrar:hover {
+}.id-screen .btn-entrar:hover {
     transform: scale(1.03);
     box-shadow: 0 0 40px rgba(155, 48, 255, 0.4);
 }
@@ -138,7 +132,9 @@
     font-size: 14px;
     min-height: 24px;
     margin-top: 10px;
-}.cartel-cerrado {
+}
+
+.cartel-cerrado {
     position: fixed;
     top: 0;
     left: 0;
@@ -153,8 +149,7 @@
     text-align: center;
     padding: 30px;
     backdrop-filter: blur(10px);
-}
-.cartel-cerrado.mostrar {
+}.cartel-cerrado.mostrar {
     display: flex;
 }
 .cartel-cerrado .icono {
@@ -171,8 +166,7 @@
     font-size: 48px;
     text-shadow: 0 0 30px rgba(255, 106, 122, 0.3);
     margin-bottom: 15px;
-}
-.cartel-cerrado .sub {
+}.cartel-cerrado .sub {
     color: #b0a0c0;
     font-size: 20px;
     margin-bottom: 10px;
@@ -209,8 +203,7 @@
 .card.activo {
     border-color: #9b30ff;
     box-shadow: 0 0 30px rgba(155, 48, 255, 0.25);
-}
-.card.activo:hover {
+}.card.activo:hover {
     box-shadow: 0 0 50px rgba(155, 48, 255, 0.4);
 }
 .card::before {
@@ -224,8 +217,7 @@
     animation: rotarGlow 20s linear infinite;
     opacity: 0;
     transition: opacity 0.5s ease;
-}
-.card.activo::before {
+}.card.activo::before {
     opacity: 1;
 }
 @keyframes rotarGlow {
@@ -257,8 +249,7 @@
     font-size: 12px;
     transition: 0.3s ease;
     margin-left: 10px;
-}
-.bienvenida .btn-cambiar-id:hover {
+}.bienvenida .btn-cambiar-id:hover {
     border-color: #c084fc;
     color: #c084fc;
 }
@@ -273,9 +264,7 @@
 .fecha-hora span {
     color: #b0a0c0;
     font-weight: 600;
-}
-
-.cuenta-regresiva {
+}.cuenta-regresiva {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 15px 20px;
@@ -296,8 +285,7 @@
     font-weight: 700;
     margin: 5px 0;
     text-shadow: 0 0 30px rgba(255, 216, 74, 0.2);
-}
-.cuenta-regresiva .estado-cuenta {
+}.cuenta-regresiva .estado-cuenta {
     color: #b0a0c0;
     font-size: 14px;
 }
@@ -309,7 +297,9 @@
 }
 .cuenta-regresiva.cerrado {
     border-color: #ff6a7a;
-}.horario-container {
+}
+
+.horario-container {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 15px 20px;
@@ -321,8 +311,7 @@
     gap: 15px;
     flex-wrap: wrap;
     transition: all 0.5s ease;
-}
-.horario-container.abierto {
+}.horario-container.abierto {
     border-color: #4aff8a;
     box-shadow: 0 0 30px rgba(74, 255, 138, 0.1);
 }
@@ -339,8 +328,7 @@
 }
 .horario-container .estado.cerrado {
     color: #ff6a7a;
-}
-.horario-container .horario-texto {
+}.horario-container .horario-texto {
     color: #7a6a8a;
     font-size: 14px;
 }
@@ -363,8 +351,7 @@ h1 {
     margin: 10px auto 16px;
     border-radius: 10px;
     box-shadow: 0 0 20px #9b30ff;
-}
-.subtitle {
+}.subtitle {
     font-size: 17px;
     color: #b0a0c0;
     letter-spacing: 1px;
@@ -373,7 +360,9 @@ h1 {
 .subtitle span {
     color: #c084fc;
     font-weight: 500;
-}.contador-container {
+}
+
+.contador-container {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
@@ -381,8 +370,7 @@ h1 {
     margin: 20px 0;
     box-shadow: 0 0 30px rgba(255, 216, 74, 0.05);
     transition: all 0.5s ease;
-}
-.contador-container.activo {
+}.contador-container.activo {
     box-shadow: 0 0 50px rgba(255, 216, 74, 0.15);
 }
 .contador-container .numero {
@@ -399,9 +387,7 @@ h1 {
 .contador-container .texto span {
     color: #c084fc;
     font-weight: 600;
-}
-
-.juegos-grid {
+}.juegos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 15px;
@@ -420,8 +406,7 @@ h1 {
     transform: translateY(-8px);
     border-color: #9b30ff;
     box-shadow: 0 0 40px rgba(155, 48, 255, 0.15);
-}
-.juego-card .icono {
+}.juego-card .icono {
     font-size: 48px;
     margin-bottom: 10px;
 }
@@ -440,8 +425,7 @@ h1 {
 }
 .juego-card .estado-juego.proximo {
     color: #ffd84a;
-}
-.juego-card.freefire { border-color: #6a1a9a; }
+}.juego-card.freefire { border-color: #6a1a9a; }
 .juego-card.freefire:hover { border-color: #9b30ff; box-shadow: 0 0 40px rgba(155, 48, 255, 0.2); }
 .juego-card.bloodstrike { border-color: #8a1a1a; }
 .juego-card.bloodstrike:hover { border-color: #cc2a2a; box-shadow: 0 0 40px rgba(204, 42, 42, 0.2); }
@@ -474,8 +458,7 @@ h1 {
     border-top: 5px solid #9b30ff;
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-}
-.carga-overlay .texto-carga {
+}.carga-overlay .texto-carga {
     color: #b0a0c0;
     font-size: 18px;
     margin-top: 20px;
@@ -495,8 +478,7 @@ h1 {
     border: 2px solid #2a1a3a;
     transition: 0.3s ease;
     text-align: center;
-}
-.producto-card:hover {
+}.producto-card:hover {
     border-color: #9b30ff;
     transform: translateY(-3px);
     box-shadow: 0 0 30px rgba(155, 48, 255, 0.1);
@@ -515,8 +497,7 @@ h1 {
 .producto-card .diamantes {
     color: #7a6a8a;
     font-size: 12px;
-}
-.producto-card .cantidad-control {
+}.producto-card .cantidad-control {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -534,8 +515,7 @@ h1 {
     font-size: 18px;
     font-weight: 700;
     transition: 0.2s ease;
-}
-.producto-card .cantidad-control button:hover {
+}.producto-card .cantidad-control button:hover {
     background: #9b30ff;
     border-color: #9b30ff;
     color: #0a0a0a;
@@ -546,18 +526,13 @@ h1 {
     font-weight: 700;
     min-width: 30px;
     text-align: center;
-}.btn-volver {
+}
+
+.btn-volver {
     background: transparent;
     border: 1px solid #3a2a4a;
     color: #7a6a8a;
-    padding: 8px 20px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 13px;
-    transition: 0.3s ease;
-    margin-bottom: 15px;
-}
-.btn-volver:hover {
+    pad.btn-volver:hover {
     border-color: #c084fc;
     color: #c084fc;
 }
@@ -577,8 +552,33 @@ h1 {
     box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
+}ding: 8px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 13px;
+    transition: 0.3s ease;
+    margin-bottom: 15px;
+}.btn-volver:hover {
+    border-color: #c084fc;
+    color: #c084fc;
 }
-.carrito-flotante.mostrar {
+
+.carrito-flotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(13, 13, 13, 0.95);
+    border: 2px solid #9b30ff;
+    border-radius: 30px;
+    padding: 12px 20px;
+    display: none;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+    box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}.carrito-flotante.mostrar {
     display: flex;
 }
 .carrito-flotante .icono {
@@ -596,9 +596,7 @@ h1 {
 .carrito-flotante .info .items {
     color: #7a6a8a;
     font-size: 12px;
-}
-
-.btn-pago {
+        }.btn-pago {
     display: inline-block;
     padding: 18px 48px;
     background: linear-gradient(135deg, #ffd84a, #f5a623);
@@ -616,14 +614,15 @@ h1 {
     width: 100%;
     max-width: 400px;
     margin: 10px auto;
-}
-.btn-pago:hover {
+}.btn-pago:hover {
     transform: scale(1.05);
     box-shadow: 0 0 50px rgba(255, 216, 74, 0.5);
 }
 .btn-pago .icono {
     margin-right: 10px;
-}.carrito {
+}
+
+.carrito {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
@@ -636,8 +635,7 @@ h1 {
     display: block;
     border-color: #ffd84a;
     box-shadow: 0 0 30px rgba(255, 216, 74, 0.1);
-}
-.carrito h3 {
+}.carrito h3 {
     color: #ffd84a;
     font-size: 20px;
     margin-bottom: 10px;
@@ -660,8 +658,7 @@ h1 {
 .carrito .item .precio {
     color: #ffd84a;
     font-weight: 600;
-}
-.carrito .total {
+}.carrito .total {
     display: flex;
     justify-content: space-between;
     padding: 12px 0;
@@ -674,14 +671,15 @@ h1 {
 .carrito .total .total-precio {
     color: #ffd84a;
     font-size: 22px;
-}.form-group {
+}
+
+.form-group {
     margin: 15px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
-}
-.form-group input {
+}.form-group input {
     background: #1a1a1a;
     border: 2px solid #3a2a4a;
     border-radius: 30px;
@@ -703,9 +701,7 @@ h1 {
     font-weight: 500;
     font-size: 14px;
     letter-spacing: 1px;
-}
-
-.historial-container {
+}.historial-container {
     background: rgba(20, 20, 20, 0.9);
     border-radius: 20px;
     padding: 20px;
@@ -730,8 +726,7 @@ h1 {
     border-bottom: 1px solid #2a1a3a;
     color: #b0a0c0;
     font-size: 13px;
-}
-.historial-container .item-historial .fecha {
+}.historial-container .item-historial .fecha {
     color: #7a6a8a;
 }
 .historial-container .item-historial .producto {
@@ -746,8 +741,7 @@ h1 {
     text-align: center;
     padding: 15px 0;
     font-size: 14px;
-}
-.historial-container .btn-ver-historial {
+}.historial-container .btn-ver-historial {
     background: transparent;
     border: 1px solid #c084fc;
     color: #c084fc;
@@ -783,8 +777,7 @@ h1 {
 .comprobante-area .icono {
     font-size: 40px;
     color: #7a6a8a;
-}
-.comprobante-area .texto {
+}.comprobante-area .texto {
     color: #7a6a8a;
     font-size: 14px;
     margin-top: 5px;
@@ -804,9 +797,7 @@ h1 {
 .comprobante-preview img {
     width: 100%;
     display: block;
-}
-
-.referencia-input {
+}.referencia-input {
     max-width: 200px;
     margin-top: 10px;
     background: #1a1a1a;
@@ -847,8 +838,7 @@ h1 {
     color: #d0c0e0;
     font-size: 15px;
     line-height: 1.8;
-}
-.pago-movil .info strong {
+}.pago-movil .info strong {
     color: #c084fc;
 }
 
@@ -869,8 +859,7 @@ h1 {
     cursor: pointer;
     width: 100%;
     max-width: 400px;
-}
-.btn:hover:not(:disabled) {
+    }.btn:hover:not(:disabled) {
     background: #9b30ff;
     color: #0a0a0a;
     box-shadow: 0 0 35px #9b30ff;
@@ -892,71 +881,66 @@ h1 {
     border-color: #4aff8a;
     color: #0a0a0a;
     box-shadow: 0 0 35px rgba(74, 255, 138, 0.4);
-}        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: #1a1a1a;
-            color: #e0d0f0;
-            padding: 16px 32px;
-            border-radius: 60px;
-            border: 1px solid #9b30ff;
-            box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
-            font-weight: 600;
-            opacity: 0;
-            transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            z-index: 9999;
-            pointer-events: none;
-            max-width: 90%;
-            text-align: center;
-        }
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-        .toast.success {
-            border-color: #4aff8a;
-            box-shadow: 0 0 40px rgba(74, 255, 138, 0.2);
-        }
-        .toast.error {
-            border-color: #ff6a7a;
-            box-shadow: 0 0 40px rgba(255, 106, 122, 0.2);
-        }
-        .toast.warning {
-            border-color: #ffd84a;
-            box-shadow: 0 0 40px rgba(255, 216, 74, 0.2);
-        }
+}.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #1a1a1a;
+    color: #e0d0f0;
+    padding: 16px 32px;
+    border-radius: 60px;
+    border: 1px solid #9b30ff;
+    box-shadow: 0 0 40px rgba(155, 48, 255, 0.2);
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 9999;
+    pointer-events: none;
+    max-width: 90%;
+    text-align: center;
+}.toast.show {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+.toast.success {
+    border-color: #4aff8a;
+    box-shadow: 0 0 40px rgba(74, 255, 138, 0.2);
+}
+.toast.error {
+    border-color: #ff6a7a;
+    box-shadow: 0 0 40px rgba(255, 106, 122, 0.2);
+}
+.toast.warning {
+    border-color: #ffd84a;
+    box-shadow: 0 0 40px rgba(255, 216, 74, 0.2);
+}.footer-phone {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #2a1a3a;
+    color: #7a6a8a;
+    font-size: 14px;
+}
+.footer-phone strong {
+    color: #c084fc;
+}
 
-        .footer-phone {
-            margin-top: 20px;
-            padding-top: 16px;
-            border-top: 1px solid #2a1a3a;
-            color: #7a6a8a;
-            font-size: 14px;
-        }
-        .footer-phone strong {
-            color: #c084fc;
-        }
-
-        @media (max-width: 600px) {
-            .card { padding: 25px 18px; }
-            h1 { font-size: 34px; }
-            .productos-grid { grid-template-columns: 1fr 1fr; }
-            .producto-card { padding: 10px 8px; }
-            .producto-card .nombre { font-size: 13px; }
-            .producto-card .precio { font-size: 15px; }
-            .carrito-flotante { padding: 10px 15px; bottom: 10px; right: 10px; }
-            .carrito-flotante .info { font-size: 12px; }
-            .carrito-flotante .info .total { font-size: 15px; }
-            .cartel-cerrado h1 { font-size: 32px; }
-            .cartel-cerrado .cuenta { font-size: 28px; }
-            .cuenta-regresiva .tiempo { font-size: 24px; }
-            .btn-pago { font-size: 16px; padding: 14px 30px; }
-            .juegos-grid { grid-template-columns: 1fr 1fr; }
-            .id-screen .logo-grande { font-size: 42px; }
-        }
-        @media (max-width: 400px) {
+@media (max-width: 600px) {
+    .card { padding: 25px 18px; }
+    h1 { font-size: 34px; }
+    .productos-grid { grid-template-columns: 1fr 1fr; }
+    .producto-card { padding: 10px 8px; }
+    .producto-card .nombre { font-size: 13px; }
+    .producto-card .precio { font-size: 15px; }    .carrito-flotante { padding: 10px 15px; bottom: 10px; right: 10px; }
+    .carrito-flotante .info { font-size: 12px; }
+    .carrito-flotante .info .total { font-size: 15px; }
+    .cartel-cerrado h1 { font-size: 32px; }
+    .cartel-cerrado .cuenta { font-size: 28px; }
+    .cuenta-regresiva .tiempo { font-size: 24px; }
+    .btn-pago { font-size: 16px; padding: 14px 30px; }
+    .juegos-grid { grid-template-columns: 1fr 1fr; }
+    .id-screen .logo-grande { font-size: 42px; }
+}        @media (max-width: 400px) {
             .productos-grid { grid-template-columns: 1fr; }
             .juegos-grid { grid-template-columns: 1fr; }
             h1 { font-size: 28px; }
@@ -965,14 +949,14 @@ h1 {
         }
     </style>
 </head>
-<body><!-- ===== PANTALLA DE CARGA INICIAL ===== -->
-<div class="loader-screen" id="loaderScreen">
-    <div class="logo">💎 DiviMarket</div>
-    <div class="spinner"></div>
-    <div class="cargando-texto">CARGANDO...</div>
-</div>
+<body>
 
-<!-- ===== CARTEL DE TIENDA CERRADA ===== -->
+    <!-- ===== PANTALLA DE CARGA INICIAL ===== -->
+    <div class="loader-screen" id="loaderScreen">
+        <div class="logo">💎 DiviMarket</div>
+        <div class="spinner"></div>
+        <div class="cargando-texto">CARGANDO...</div>
+    </div><!-- ===== CARTEL DE TIENDA CERRADA ===== -->
 <div class="cartel-cerrado" id="cartelCerrado">
     <div class="icono">🔴</div>
     <h1>TIENDA CERRADA</h1>
@@ -985,9 +969,7 @@ h1 {
 <div class="carga-overlay" id="cargaOverlay">
     <div class="spinner-grande"></div>
     <div class="texto-carga" id="textoCarga">Cargando productos...</div>
-</div>
-
-<div class="container" id="contenidoTienda">
+</div><div class="container" id="contenidoTienda">
     <!-- ===== PANTALLA DE ID INICIAL ===== -->
     <div class="card mostrar" id="idScreen">
         <div class="id-screen">
@@ -1018,9 +1000,7 @@ h1 {
     <div class="label" id="cuentaLabel">⏳ La tienda cierra en:</div>
     <div class="tiempo" id="cuentaTiempo">--:--:--</div>
     <div class="estado-cuenta" id="cuentaEstado">🟢 <span>Abierto</span> • Atendiendo pedidos</div>
-</div>
-
-<!-- HORARIO -->
+</div><!-- HORARIO -->
 <div class="horario-container" id="horarioContainer">
     <span class="estado" id="estadoHorario">🟢 Abierto</span>
     <span class="horario-texto">🕐 <span>10:30 AM</span> - <span>12:00 AM</span> (Lunes a Domingo)</span>
@@ -1045,8 +1025,7 @@ h1 {
             <div class="icono">🔫</div>
             <div class="nombre">Blood Strike</div>
             <div class="estado-juego proximo">📌 Próximamente</div>
-        </div>
-        <!-- MOBILE LEGENDS - Próximamente -->
+        </div>        <!-- MOBILE LEGENDS - Próximamente -->
         <div class="juego-card mobilelegends" onclick="juegoProximamente('Mobile Legends')">
             <div class="icono">⚔️</div>
             <div class="nombre">Mobile Legends</div>
@@ -1077,9 +1056,7 @@ h1 {
     <div class="label">💎 MEJOR PRECIO POR DIAMANTE</div>
     <div class="valor" id="mejorPrecioValor">Cargando...</div>
     <div class="detalle">Aprovecha la mejor oferta</div>
-</div>
-
-<!-- CALCULADORA DÓLARES (OCULTA INICIALMENTE) -->
+</div><!-- CALCULADORA DÓLARES (OCULTA INICIALMENTE) -->
 <div class="calculadora-container" id="calculadoraContainer" style="display:none;">
     <h3>💵 Conversor Dólar a Diamantes</h3>
     <div class="input-group">
@@ -1115,9 +1092,7 @@ h1 {
         <div class="nombre">Netflix</div>
         <span class="badge">Próximamente</span>
     </div>
-</div>
-
-<!-- CARRITO -->
+</div><!-- CARRITO -->
 <div class="carrito" id="carrito">
     <h3>🛒 Tu carrito</h3>
     <div id="carritoItems"></div>
@@ -1147,9 +1122,7 @@ h1 {
 <div class="form-group">
     <label>📱 Teléfono de contacto</label>
     <input type="text" id="telefono" placeholder="0424-123-4567" oninput="verificarCampos()" />
-</div>
-
-<!-- COMPROBANTE -->
+</div><!-- COMPROBANTE -->
 <div class="form-group">
     <label>📸 Comprobante de pago</label>
     <div class="comprobante-area" id="comprobanteArea" onclick="document.getElementById('comprobanteInput').click()">
@@ -1161,22 +1134,20 @@ h1 {
         <img id="comprobanteImg" src="" alt="Comprobante" />
     </div>
     <input type="text" id="referenciaInput" placeholder="🔢 Últimos 4 dígitos de la referencia" maxlength="4" class="referencia-input" oninput="verificarCampos()" />
-</div>        <!-- PAGO MÓVIL -->
-        <div class="pago-movil" id="pagoMovilSection">
-            <h3>💳 PAGO MÓVIL</h3>
-            <div class="info">
-                <strong>🏦 Banco:</strong> Venezuela<br />
-                <strong>🆔 Cédula:</strong> V-11.692.586<br />
-                <strong>📞 Teléfono:</strong> 0424-120-1908<br />
-            </div>
-        </div>
+</div><!-- PAGO MÓVIL -->
+<div class="pago-movil" id="pagoMovilSection">
+    <h3>💳 PAGO MÓVIL</h3>
+    <div class="info">
+        <strong>🏦 Banco:</strong> Venezuela<br />
+        <strong>🆔 Cédula:</strong> V-11.692.586<br />
+        <strong>📞 Teléfono:</strong> 0424-120-1908<br />
+    </div>
+</div>
 
-        <!-- BOTÓN SOLICITAR RECARGA -->
-        <button class="btn btn-success" id="btnSolicitar" disabled onclick="solicitarPedido()">
-            ✅ Solicitar Recarga
-        </button>
-
-        <div class="footer-phone">
+<!-- BOTÓN SOLICITAR RECARGA -->
+<button class="btn btn-success" id="btnSolicitar" disabled onclick="solicitarPedido()">
+    ✅ Solicitar Recarga
+</button>        <div class="footer-phone">
             📞 <strong>+58 424 2488 569</strong> — Soporte 24/7
         </div>
     </div>
@@ -1216,19 +1187,19 @@ h1 {
     let contador = parseInt(localStorage.getItem('contadorClientes')) || 4510;
     let historial = [];
     let idActual = '';
-    let juegoActual = '';
-
-    // ================================================================
-    // PANTALLA DE CARGA
-    // ================================================================
-    window.addEventListener('load', function() {
+    let juegoActual = '';// ================================================================
+// PANTALLA DE CARGA
+// ================================================================
+window.addEventListener('load', function() {
+    setTimeout(() => {
+        document.getElementById('loaderScreen').classList.add('oculto');
         setTimeout(() => {
-            document.getElementById('loaderScreen').classList.add('oculto');
-            setTimeout(() => {
-                document.getElementById('loaderScreen').style.display = 'none';
-            }, 800);
-        }, 1200);
-    });// ================================================================
+            document.getElementById('loaderScreen').style.display = 'none';
+        }, 800);
+    }, 1200);
+});
+
+// ================================================================
 // FECHA Y HORA
 // ================================================================
 function actualizarFechaHora() {
@@ -1247,14 +1218,14 @@ function actualizarFechaHora() {
     document.getElementById('fechaActual').textContent = fecha;
     document.getElementById('horaActual').textContent = hora;
 }
-setInterval(actualizarFechaHora, 1000);
-
-// ================================================================
+setInterval(actualizarFechaHora, 1000);// ================================================================
 // JUEGO PRÓXIMAMENTE
 // ================================================================
 function juegoProximamente(nombre) {
     showToast(`📌 ${nombre} estará disponible próximamente`, 'warning', 3000);
-}// ================================================================
+}
+
+// ================================================================
 // ID INICIAL
 // ================================================================
 function entrarConID() {
@@ -1274,9 +1245,7 @@ function entrarConID() {
     error.textContent = '';
     idActual = id;
     document.getElementById('playerId').value = id;
-    document.getElementById('idMostrado').textContent = id;
-
-    document.getElementById('idScreen').classList.remove('mostrar');
+    document.getElementById('idMostrado').textContent = id;    document.getElementById('idScreen').classList.remove('mostrar');
     document.getElementById('idScreen').style.display = 'none';
     document.getElementById('tiendaPrincipal').classList.add('mostrar');
 
@@ -1325,9 +1294,7 @@ function seleccionarJuego(juego) {
         document.getElementById('calculadoraContainer').style.display = 'block';
         document.getElementById('tituloJuego').textContent = '🔥 Free Fire';
     }, 1000);
-}
-
-function volverMenu() {
+    }function volverMenu() {
     document.getElementById('seccionProductos').style.display = 'none';
     document.getElementById('mejorPrecio').style.display = 'none';
     document.getElementById('calculadoraContainer').style.display = 'none';
@@ -1336,7 +1303,9 @@ function volverMenu() {
     carrito = [];
     renderCarrito();
     verificarCampos();
-}// ================================================================
+}
+
+// ================================================================
 // CARGAR PRODUCTOS
 // ================================================================
 function cargarProductos(juego) {
@@ -1347,8 +1316,7 @@ function cargarProductos(juego) {
     productos.forEach(p => {
         const div = document.createElement('div');
         div.className = 'producto-card';
-        div.dataset.id = p.id;
-        div.innerHTML = `
+        div.dataset.id = p.id;        div.innerHTML = `
             <div class="nombre">💎 ${p.diamantes}</div>
             <div class="precio">Bs ${p.precio.toLocaleString()}</div>
             <div class="diamantes">Diamantes</div>
@@ -1362,9 +1330,7 @@ function cargarProductos(juego) {
     });
 
     calcularMejorPrecio(productos);
-}
-
-// ================================================================
+    }// ================================================================
 // MEJOR PRECIO
 // ================================================================
 function calcularMejorPrecio(productos) {
@@ -1399,9 +1365,7 @@ function showToast(msg, type = 'info', duration = 3000) {
     t.classList.add('show');
     clearTimeout(t._timeout);
     t._timeout = setTimeout(() => t.classList.remove('show'), duration);
-}
-
-// ================================================================
+}// ================================================================
 // HORARIO
 // ================================================================
 function verificarHorario() {
@@ -1417,49 +1381,45 @@ function verificarHorario() {
     const cuentaLabel = document.getElementById('cuentaLabel');
     const cuentaEstado = document.getElementById('cuentaEstado');
 
-    let targetTime;
-    if (abierto) {
-        targetTime = new Date(ahora);
-        targetTime.setHours(Math.floor(HORA_CIERRE), (HORA_CIERRE % 1) * 60, 0, 0);
-        if (targetTime <= ahora) {
-            targetTime.setDate(targetTime.getDate() + 1);
-        }
-        container.className = 'horario-container abierto';
-        estado.className = 'estado abierto';
-        estado.textContent = '🟢 Abierto';
-        cartel.classList.remove('mostrar');
-        contenido.style.display = 'block';
-        cuentaRegresiva.className = 'cuenta-regresiva abierto';
-        cuentaLabel.textContent = '⏳ La tienda cierra en:';
-        cuentaEstado.innerHTML = '🟢 <span>Abierto</span> • Atendiendo pedidos';
-    } else {
-        targetTime = new Date(ahora);
-        targetTime.setHours(Math.floor(HORA_APERTURA), (HORA_APERTURA % 1) * 60, 0, 0);
-        if (targetTime <= ahora) {
-            targetTime.setDate(targetTime.getDate() + 1);
-        }
-        container.className = 'horario-container cerrado';
-        estado.className = 'estado cerrado';
-        estado.textContent = '🔴 Cerrado';
-        cartel.classList.add('mostrar');
-        contenido.style.display = 'none';
-        cuentaRegresiva.className = 'cuenta-regresiva cerrado';
-        cuentaLabel.textContent = '⏳ La tienda abre en:';
-        cuentaEstado.innerHTML = '🔴 <span>Cerrado</span> • Vuelve a las 10:30 AM';
+    let targetTime;if (abierto) {
+    targetTime = new Date(ahora);
+    targetTime.setHours(Math.floor(HORA_CIERRE), (HORA_CIERRE % 1) * 60, 0, 0);
+    if (targetTime <= ahora) {
+        targetTime.setDate(targetTime.getDate() + 1);
     }
+    container.className = 'horario-container abierto';
+    estado.className = 'estado abierto';
+    estado.textContent = '🟢 Abierto';
+    cartel.classList.remove('mostrar');
+    contenido.style.display = 'block';
+    cuentaRegresiva.className = 'cuenta-regresiva abierto';
+    cuentaLabel.textContent = '⏳ La tienda cierra en:';
+    cuentaEstado.innerHTML = '🟢 <span>Abierto</span> • Atendiendo pedidos';
+} else {
+    targetTime = new Date(ahora);
+    targetTime.setHours(Math.floor(HORA_APERTURA), (HORA_APERTURA % 1) * 60, 0, 0);
+    if (targetTime <= ahora) {
+        targetTime.setDate(targetTime.getDate() + 1);
+    }    container.className = 'horario-container cerrado';
+    estado.className = 'estado cerrado';
+    estado.textContent = '🔴 Cerrado';
+    cartel.classList.add('mostrar');
+    contenido.style.display = 'none';
+    cuentaRegresiva.className = 'cuenta-regresiva cerrado';
+    cuentaLabel.textContent = '⏳ La tienda abre en:';
+    cuentaEstado.innerHTML = '🔴 <span>Cerrado</span> • Vuelve a las 10:30 AM';
+}
 
-    const diff = targetTime - ahora;
-    if (diff > 0) {
-        const horas = Math.floor(diff / (1000 * 60 * 60));
-        const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const segundos = Math.floor((diff % (1000 * 60)) / 1000);
-        cuentaTiempo.textContent = 
-            `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
-    } else {
-        cuentaTiempo.textContent = '00:00:00';
-    }
-
-    if (!abierto) {
+const diff = targetTime - ahora;
+if (diff > 0) {
+    const horas = Math.floor(diff / (1000 * 60 * 60));
+    const minutos = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diff % (1000 * 60)) / 1000);
+    cuentaTiempo.textContent = 
+        `${String(horas).padStart(2, '0')}:${String(minutos).padStart(2, '0')}:${String(segundos).padStart(2, '0')}`;
+} else {
+    cuentaTiempo.textContent = '00:00:00';
+}    if (!abierto) {
         const diffApertura = targetTime - ahora;
         if (diffApertura > 0) {
             const horas = Math.floor(diffApertura / (1000 * 60 * 60));
@@ -1490,8 +1450,7 @@ function cambiarCantidad(id, delta) {
     if (!verificarHorario()) {
         showToast('⛔ Tienda cerrada. Abrimos a las 10:30 AM', 'warning', 3000);
         return;
-    }
-    const productos = PRODUCTOS[juegoActual] || [];
+    }    const productos = PRODUCTOS[juegoActual] || [];
     const producto = productos.find(p => p.id === id);
     if (!producto) return;
     const existente = carrito.find(c => c.id === id);
@@ -1529,9 +1488,7 @@ function cambiarCantidad(id, delta) {
     let html = '';
     let total = 0;
     let totalDiamantes = 0;
-    let totalItems = 0;
-
-    carrito.forEach(item => {
+    let totalItems = 0;    carrito.forEach(item => {
         const subtotal = item.precio * item.cantidad;
         total += subtotal;
         totalDiamantes += item.diamantes * item.cantidad;
@@ -1568,9 +1525,7 @@ function cambiarCantidad(id, delta) {
             btn.textContent = '✅ Solicitar Recarga';
         }
     }
-}
-
-// ================================================================
+}// ================================================================
 // HISTORIAL
 // ================================================================
 function cargarHistorial(id) {
@@ -1593,8 +1548,7 @@ function cargarHistorial(id) {
     }
 
     container.classList.add('mostrar');
-    let html = '';
-    historial.slice().reverse().forEach(item => {
+    let html = '';    historial.slice().reverse().forEach(item => {
         html += `
             <div class="item-historial">
                 <span class="fecha">${item.fecha}</span>
@@ -1613,7 +1567,7 @@ function verHistorial() {
     }
     cargarHistorial(idActual);
     document.getElementById('historialContainer').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}// ================================================================
+    }// ================================================================
 // CALCULADORA DE DÓLARES
 // ================================================================
 function calcularDolares() {
@@ -1637,32 +1591,28 @@ function calcularDolares() {
 
     const productos = PRODUCTOS[juegoActual] || [];
     const diamantesAprox = Math.floor(bs / 6.5);
-    diamantesSugeridos.textContent = diamantesAprox.toLocaleString();
+    diamantesSugeridos.textContent = diamantesAprox.toLocaleString();let sugerencias = [];
+let restante = bs;
+const ordenados = [...productos].sort((a, b) => b.precio - a.precio);
 
-    let sugerencias = [];
-    let restante = bs;
-    const ordenados = [...productos].sort((a, b) => b.precio - a.precio);
-
-    for (const p of ordenados) {
-        if (restante >= p.precio) {
-            const cantidad = Math.floor(restante / p.precio);
-            if (cantidad > 0) {
-                sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
-                restante = restante - (p.precio * cantidad);
-            }
+for (const p of ordenados) {
+    if (restante >= p.precio) {
+        const cantidad = Math.floor(restante / p.precio);
+        if (cantidad > 0) {
+            sugerencias.push({ ...p, cantidad: cantidad, total: p.precio * cantidad });
+            restante = restante - (p.precio * cantidad);
         }
     }
+}
 
-    if (sugerencias.length === 0) {
-        sugerenciasDiv.innerHTML = `
-            <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
-                💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
-            </div>
-        `;
-        return;
-    }
-
-    let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
+if (sugerencias.length === 0) {
+    sugerenciasDiv.innerHTML = `
+        <div style="color:#7a6a8a; font-size:13px; margin-top:10px;">
+            💡 Con $${dolares.toFixed(2)} no alcanza para ningún paquete
+        </div>
+    `;
+    return;
+}    let html = '<div style="color:#b0a0c0; font-size:13px; margin-top:10px;">📦 Paquetes sugeridos:</div>';
     sugerencias.forEach(s => {
         html += `
             <div class="tag" onclick="agregarSugerencia(${s.id}, ${s.cantidad})">
@@ -1698,9 +1648,7 @@ function calcularDolares() {
     renderCarrito();
     verificarCampos();
     showToast(`✅ Agregado ${cantidad}x ${producto.diamantes}`, 'success');
-}
-
-// ================================================================
+    }// ================================================================
 // IR AL PAGO
 // ================================================================
 function irAlPago() {
@@ -1737,9 +1685,7 @@ document.addEventListener('DOMContentLoaded', function() {
             };
             reader.readAsDataURL(file);
         }
-    });
-
-    document.getElementById('referenciaInput').addEventListener('input', function() {
+    });    document.getElementById('referenciaInput').addEventListener('input', function() {
         this.value = this.value.replace(/\D/g, '').slice(0, 4);
         verificarCampos();
     });
@@ -1786,26 +1732,24 @@ function solicitarPedido() {
 
     let total = 0;
     let totalDiamantes = 0;
-    let detalleProductos = '';
+    let detalleProductos = '';carrito.forEach(item => {
+    const subtotal = item.precio * item.cantidad;
+    total += subtotal;
+    totalDiamantes += item.diamantes * item.cantidad;
+    detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
+});
 
-    carrito.forEach(item => {
-        const subtotal = item.precio * item.cantidad;
-        total += subtotal;
-        totalDiamantes += item.diamantes * item.cantidad;
-        detalleProductos += `- 💎 ${item.diamantes} × ${item.cantidad} = Bs ${subtotal.toLocaleString()}%0A`;
-    });
+const juegoNombre = juegoActual === 'freefire' ? 'Free Fire' : 'Juego';
 
-    const juegoNombre = juegoActual === 'freefire' ? 'Free Fire' : 'Juego';    const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
-        `🎮 *Juego:* ${juegoNombre}%0A` +
-        `🆔 *ID:* ${idActual}%0A` +
-        `📱 *Teléfono:* ${telefono}%0A` +
-        `📦 *Productos:*%0A${detalleProductos}%0A` +
-        `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
-        `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
-        `🔢 *Referencia:* ${referencia}%0A%0A` +
-        `✅ *Realiza la recarga y confirma al cliente*`;
-
-    const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
+const mensaje = `🔔 *NUEVO PEDIDO - DiviMarket* 🔔%0A%0A` +
+    `🎮 *Juego:* ${juegoNombre}%0A` +
+    `🆔 *ID:* ${idActual}%0A` +
+    `📱 *Teléfono:* ${telefono}%0A` +
+    `📦 *Productos:*%0A${detalleProductos}%0A` +
+    `💰 *Total:* Bs ${total.toLocaleString()}%0A` +
+    `💎 *Total Diamantes:* ${totalDiamantes.toLocaleString()}%0A` +
+    `🔢 *Referencia:* ${referencia}%0A%0A` +
+    `✅ *Realiza la recarga y confirma al cliente*`;    const url = `https://wa.me/${WHATSAPP_VENDEDOR}?text=${mensaje}`;
     window.open(url, '_blank');
 
     const key = 'historial_' + idActual;
@@ -1849,22 +1793,21 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             solicitarPedido();
         }
-    });
-
-    console.log('💡 DiviMarket cargado');
+    });    console.log('💡 DiviMarket cargado');
     console.log('📱 WhatsApp:', WHATSAPP_VENDEDOR);
     console.log('💰 Tasa: $1 =', TASA_DOLAR, 'Bs');
     console.log('🎮 Juegos disponibles: Free Fire (Blood Strike, Mobile Legends y Roblox próximamente)');
-});        // ================================================================
-        // FUNCIONES GLOBALES PARA EL HTML
-        // ================================================================
-        window.entrarConID = entrarConID;
-        window.cambiarID = cambiarID;
-        window.juegoProximamente = juegoProximamente;
-        window.seleccionarJuego = seleccionarJuego;
-        window.volverMenu = volverMenu;
-        window.cambiarCantidad = cambiarCantidad;
-        window.calcularDolares = calcularDolares;
+});
+
+// ================================================================
+// FUNCIONES GLOBALES PARA EL HTML
+// ================================================================
+window.entrarConID = entrarConID;
+window.cambiarID = cambiarID;
+window.juegoProximamente = juegoProximamente;
+window.seleccionarJuego = seleccionarJuego;
+window.volverMenu = volverMenu;
+window.cambiarCantidad = cambiarCantidad;        window.calcularDolares = calcularDolares;
         window.agregarSugerencia = agregarSugerencia;
         window.irAlPago = irAlPago;
         window.verHistorial = verHistorial;
@@ -1872,5 +1815,183 @@ document.addEventListener('DOMContentLoaded', function() {
         window.verificarCampos = verificarCampos;
         window.showToast = showToast;
     </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiviMarket - Free Fire</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #0a0a0a;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            background-image: 
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                url('https://www.mordeo.org/files/uploads/2020/09/Shinobi-Garena-Free-Fire-4K-Ultra-HD-Mobile-Wallpaper-768x1365.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }.container {
+    max-width: 950px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    flex-direction: column;
+    transition: opacity 0.8s ease;
+}
+.loader-screen.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-screen .logo {
+    font-size: 48px;
+    font-weight: 700;
+    color: #c084fc;
+    text-shadow: 0 0 30px #9b30ff;
+    margin-bottom: 20px;
+}.container {
+    max-width: 950px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.loader-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #0a0a0a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    flex-direction: column;
+    transition: opacity 0.8s ease;
+}
+.loader-screen.oculto {
+    opacity: 0;
+    pointer-events: none;
+}
+.loader-screen .logo {
+    font-size: 48px;
+    font-weight: 700;
+    color: #c084fc;
+    text-shadow: 0 0 30px #9b30ff;
+    margin-bottom: 20px;
+}.loader-screen .spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #2a1a3a;
+    border-top: 4px solid #9b30ff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+.loader-screen .cargando-texto {
+    color: #7a6a8a;
+    margin-top: 15px;
+    font-size: 14px;
+    letter-spacing: 2px;
+}        .id-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            flex-direction: column;
+        }
+        .id-screen .logo-grande {
+            font-size: 64px;
+            font-weight: 700;
+            color: #c084fc;
+            text-shadow: 0 0 30px #9b30ff;
+            margin-bottom: 10px;
+        }
+        .id-screen .sub-logo {
+            color: #b0a0c0;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .id-screen .input-id {
+            background: #1a1a1a;
+            border: 2px solid #3a2a4a;
+            border-radius: 30px;
+            padding: 16px 24px;
+            color: #e0d0f0;
+            font-size: 20px;
+            width: 100%;
+            max-width: 350px;
+            outline: none;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+        .id-screen .input-id:focus {
+            border-color: #9b30ff;
+            box-shadow: 0 0 30px rgba(155, 48, 255, 0.2);
+        }
+        .id-screen .btn-entrar {
+            margin-top: 20px;
+            padding: 16px 48px;
+            background: linear-gradient(135deg, #9b30ff, #7a1fcc);
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            max-width: 350px;
+            width: 100%;
+        }
+        .id-screen .btn-entrar:hover {
+            transform: scale(1.03);
+            box-shadow: 0 0 40px rgba(155, 48, 255, 0.4);
+        }
+        .id-screen .error-id {
+            color: #ff6a7a;
+            font-size: 14px;
+            min-height: 24px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-screen" id="loaderScreen">
+        <div class="logo">💎 DiviMarket</div>
+        <div class="spinner"></div>
+        <div class="cargando-texto">CARGANDO...</div>
+    </div>
 </body>
 </html>
