@@ -1056,22 +1056,21 @@ h1 {
 <!-- ===== TOAST ===== -->
 <div class="toast" id="toast"></div><script>
     // ================================================================
-    // CONFIGURACIÓN
-    // ================================================================
-    const PRODUCTOS = [
-        { id: 1, diamantes: 110, precio: 790 },
-        { id: 2, diamantes: 341, precio: 2500 },
-        { id: 3, diamantes: 572, precio: 4000 },
-        { id: 4, diamantes: 1166, precio: 7500 },
-        { id: 5, diamantes: 2398, precio: 14639 },
-        { id: 6, diamantes: 6160, precio: 38000 }
-    ];
+// CONFIGURACIÓN - PRECIOS ACTUALIZADOS
+// ================================================================
+const PRODUCTOS = [
+    { id: 1, diamantes: 110, precio: 810 },
+    { id: 2, diamantes: 341, precio: 2480 },
+    { id: 3, diamantes: 572, precio: 3980 },
+    { id: 4, diamantes: 1166, precio: 7080 },
+    { id: 5, diamantes: 2398, precio: 13600 },
+    { id: 6, diamantes: 6160, precio: 34290 }
+];
 
-    const WHATSAPP_VENDEDOR = '584242488569';
-    const TASA_DOLAR = 980;
-    const HORA_APERTURA = 10.5;
-    const HORA_CIERRE = 24;
-
+const WHATSAPP_VENDEDOR = '584242488569';
+const TASA_DOLAR = 1000;
+const HORA_APERTURA = 10.5;
+const HORA_CIERRE = 24;
     let carrito = [];
     let contador = parseInt(localStorage.getItem('contadorClientes')) || 4510;
     let historial = [];
